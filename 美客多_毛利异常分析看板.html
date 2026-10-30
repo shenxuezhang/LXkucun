@@ -63,42 +63,38 @@ body{margin:0;background:var(--bg);color:var(--text);
 .wrap{max-width:1440px;margin:0 auto;padding:24px 20px 60px}
 header{background:linear-gradient(120deg,#2b5fd9,#1e4bb8);color:#fff;border-radius:12px;padding:22px 26px;margin-bottom:18px}
 header h1{margin:0 0 6px;font-size:22px;font-weight:600;letter-spacing:.5px}
-header .meta{font-size:13px;opacity:.85}
-header .meta span{margin-right:18px}
+header .meta{font-size:13px;opacity:.85;display:flex;flex-wrap:wrap;gap:6px 18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
-.card h2{margin:0 0 14px;font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px}
+.card h2{margin:0 0 4px;font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .card h2::before{content:"";width:4px;height:15px;background:var(--brand);border-radius:2px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:16px}
+.card .hint{font-size:12px;color:var(--sub);margin:0 0 12px;padding-left:12px}
+.h2sel{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;font-weight:400;color:var(--sub)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin-bottom:16px}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
 .kpi .t{font-size:12px;color:var(--sub);margin-bottom:6px}
-.kpi .v{font-size:26px;font-weight:600;letter-spacing:-.5px}
+.kpi .v{font-size:25px;font-weight:600;letter-spacing:-.5px}
 .kpi .s{font-size:12px;color:var(--sub);margin-top:4px}
 .kpi.red .v{color:var(--loss)} .kpi.green .v{color:var(--profit)}
 .kpi.blue .v{color:var(--brand)} .kpi.orange .v{color:var(--warn)}
-.filters{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
-.fgroup{display:flex;flex-direction:column;gap:7px}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 20px}
+.fgroup{display:flex;flex-direction:column;gap:6px}
 .flabel{font-size:12px;color:var(--sub);font-weight:500}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:16px;
-  padding:5px 13px;font-size:13px;cursor:pointer;transition:.15s;user-select:none}
-.chip:hover{border-color:var(--brand);color:var(--brand)}
-.chip.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:500}
-input[type=text]{border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-size:13px;width:230px;outline:none}
-input[type=text]:focus{border-color:var(--brand)}
-.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer;color:var(--text)}
+select,input[type=text]{border:1px solid var(--line);background:#fff;color:var(--text);
+  border-radius:8px;padding:8px 12px;font-size:13px;width:100%;outline:none;height:36px}
+select{cursor:pointer}
+select:focus,input[type=text]:focus{border-color:var(--brand)}
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 16px;font-size:13px;cursor:pointer;color:var(--text);height:36px}
 .btn:hover{border-color:var(--brand);color:var(--brand)}
-.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .grid3{display:grid;grid-template-columns:1.35fr 1fr;gap:16px}
-@media(max-width:980px){.grid2,.grid3{grid-template-columns:1fr}}
+@media(max-width:1000px){.grid2,.grid3{grid-template-columns:1fr}}
 .chart{width:100%;height:330px}
-.chart.tall{height:420px}
-.chart.sq{height:300px}
+.chart.tall{height:430px}
+.chart.sq{height:310px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
 th{background:#fafbfc;color:var(--sub);font-weight:500;cursor:pointer;position:sticky;top:0;z-index:2}
 th:hover{color:var(--brand)}
-th .ar{color:var(--brand)}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .neg{color:var(--loss);font-weight:600}
 .pos{color:var(--profit)}
@@ -106,11 +102,25 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .tag.s{background:var(--loss-l);color:var(--loss)}
 .tag.m{background:#fff3e6;color:var(--warn)}
 .tag.g{background:var(--profit-l);color:var(--profit)}
-.tblbox{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.tag.p0{background:var(--loss);color:#fff}
+.tag.p1{background:var(--loss-l);color:var(--loss)}
+.tag.p2{background:#fff3e6;color:var(--warn)}
+.tag.p3{background:#f0f2f5;color:var(--sub)}
+.tblbox{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:8px}
 .tblbox table{font-size:12.5px}
-.foot{text-align:center;color:var(--sub);font-size:12px;padding:20px 0 0}
+tbody tr:hover{background:#f7f9ff}
+.foot{text-align:center;color:var(--sub);font-size:12px;padding:16px 0 0}
 .pill{display:inline-block;background:#eef2fb;color:var(--brand);border-radius:6px;padding:1px 7px;font-size:12px}
 .empty{text-align:center;color:var(--sub);padding:40px 0}
+details.note{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+details.note summary{cursor:pointer;font-size:13px;color:var(--brand);outline:none}
+details.note ul{font-size:12.5px;color:var(--sub);line-height:1.9;margin:8px 0 0;padding-left:20px}
+@media(max-width:640px){
+  .wrap{padding:14px 12px 40px}
+  header h1{font-size:18px}
+  .kpi .v{font-size:21px}
+  .chart,.chart.tall,.chart.sq{height:300px}
+}
 </style>
 </head>
 <body>
@@ -129,54 +139,60 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 <div class="kpis" id="kpis"></div>
 
 <div class="card">
-  <h2>筛选条件（点击切换，支持多选）</h2>
+  <h2>筛选条件</h2>
+  <p class="hint">全部为下拉单选；也可直接点击图表联动筛选（毛利率分布 / 盈亏结构 / 开发人对比图）</p>
   <div class="filters">
-    <div class="fgroup">
-      <div class="flabel">开发人</div>
-      <div class="chips" id="fDev"></div>
-    </div>
-    <div class="fgroup">
-      <div class="flabel">毛利率区间</div>
-      <div class="chips" id="fGm"></div>
-    </div>
-    <div class="fgroup">
-      <div class="flabel">30天销量</div>
-      <div class="chips" id="fS30"></div>
-    </div>
-    <div class="fgroup">
-      <div class="flabel">关键词 / 操作</div>
-      <div class="chips">
-        <input type="text" id="fKey" placeholder="搜索 SKU 或产品名称">
-        <button class="btn primary" id="btnCsv">导出当前结果</button>
-        <button class="btn" id="btnReset">重置</button>
-      </div>
-    </div>
+    <div class="fgroup"><div class="flabel">开发人</div><select id="sDev"></select></div>
+    <div class="fgroup"><div class="flabel">毛利率区间</div><select id="sGm"></select></div>
+    <div class="fgroup"><div class="flabel">30天销量</div><select id="sS30"></select></div>
+    <div class="fgroup"><div class="flabel">处理优先级</div><select id="sPri"></select></div>
+    <div class="fgroup"><div class="flabel">快捷定位</div><select id="sQuick"></select></div>
+    <div class="fgroup"><div class="flabel">关键词</div><input type="text" id="fKey" placeholder="SKU 或产品名称"></div>
+    <div class="fgroup"><div class="flabel">&nbsp;</div><button class="btn" id="btnReset">重置全部</button></div>
   </div>
-  <div style="margin-top:12px;font-size:13px;color:var(--sub)">
+  <div style="margin-top:14px;font-size:13px;color:var(--sub)">
     当前命中 <b id="hit" style="color:var(--brand)"></b> 个 SKU（共 <span id="total"></span> 个）
+    <span id="hitSum" style="margin-left:14px"></span>
   </div>
 </div>
 
 <div class="grid3">
-  <div class="card"><h2>毛利率分布（SKU 数量）</h2><div id="cHist" class="chart"></div></div>
-  <div class="card"><h2>盈亏结构占比</h2><div id="cPie" class="chart sq"></div></div>
+  <div class="card"><h2>毛利率分布</h2><p class="hint">点击柱子可筛选该区间</p><div id="cHist" class="chart"></div></div>
+  <div class="card"><h2>盈亏结构占比</h2><p class="hint">点击扇区可筛选</p><div id="cPie" class="chart sq"></div></div>
 </div>
 
 <div class="grid2">
-  <div class="card"><h2>各开发人 · 30天毛利额与异常 SKU 数</h2><div id="cDev" class="chart tall"></div></div>
+  <div class="card"><h2>亏损集中度（帕累托）</h2><p class="hint">柱=单个 SKU 30天亏损额，折线=累计占比</p><div id="cPareto" class="chart tall"></div></div>
+  <div class="card"><h2>亏损 TOP 15 · 收入 vs 成本结构</h2><p class="hint">蓝色=折算后净收入，粉色=采购+费用；成本高于收入即为倒挂</p><div id="cCost" class="chart tall"></div></div>
+</div>
+
+<div class="card">
+  <h2>开发人数据对比
+    <span class="h2sel">对比指标
+      <select id="sMetric" style="width:auto;min-width:190px;height:30px;padding:4px 10px;font-size:12px"></select>
+    </span>
+  </h2>
+  <p class="hint">切换指标查看各开发人横向对比；<b>点击条形即可只看该开发人</b>（再点一次取消）</p>
+  <div id="cCmp" class="chart" style="height:440px"></div>
+</div>
+
+<div class="grid2">
+  <div class="card"><h2>各开发人 · 30天毛利额</h2><p class="hint">标签为「30天毛利额 · 异常SKU数」；点击条形只看该开发人</p><div id="cDev" class="chart tall"></div></div>
   <div class="card"><h2>亏损 TOP 20（按 30天销量 × 单位毛利）</h2><div id="cTop" class="chart tall"></div></div>
 </div>
 
 <div class="card">
-  <h2>销量 × 毛利率 散点图（气泡大小 = 30天亏损额，鼠标悬停查看明细）</h2>
+  <h2>销量 × 毛利率 散点图</h2>
+  <p class="hint">气泡大小 = 30天亏损额，虚线为盈亏平衡线，鼠标悬停查看明细</p>
   <div id="cScatter" class="chart" style="height:400px"></div>
 </div>
 
 <div class="card">
-  <h2>明细清单（点击表头可排序）</h2>
+  <h2>明细清单（点击表头排序，默认按 30天毛利额升序）</h2>
   <div class="tblbox">
     <table id="tbl">
       <thead><tr>
+        <th data-k="pri">优先级</th>
         <th data-k="sku">SKU</th>
         <th data-k="name">产品名称</th>
         <th data-k="dev">开发人</th>
@@ -189,6 +205,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
         <th data-k="s90" class="num">90天销量</th>
         <th data-k="l30" class="num">30天毛利额(¥)</th>
         <th data-k="l90" class="num">90天毛利额(¥)</th>
+        <th data-k="up" class="num">保本需涨</th>
         <th data-k="n" class="num">商品ID数</th>
         <th data-k="act">建议动作</th>
       </tr></thead>
@@ -196,21 +213,33 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     </table>
   </div>
   <div class="empty" id="noData" style="display:none">没有符合条件的 SKU</div>
+
+  <details class="note">
+    <summary>口径与算法说明（点击展开）</summary>
+    <ul>
+      <li>单位毛利 = 净收入(USD) × 汇率 6.4 − 产品采购单价 − 产品费用单价（与原表一致）。</li>
+      <li>30/90天毛利额 = 单位毛利 × 对应周期销量，用于估算该 SKU 的累计盈亏贡献。</li>
+      <li>同一 SKU 在多个站点（MLA/MLB/MLC/MLM/MCO）有各自商品 ID，销量按 SKU 计，不做跨 ID 累加；「商品ID数」列即该 SKU 挂载的 ID 数量。</li>
+      <li><b>保本需涨</b> =（采购单价 + 费用单价）÷（净收入 × 6.4）− 1，按净收入口径测算，指净收入需提升的幅度；实际还要叠加平台佣金与头程运费，仅作方向参考。</li>
+      <li><b>优先级</b>：P0 = 30天亏损额 ≥ 100 元；P1 = 30天亏损 ≥ 30 元；P2 = 单位毛利为负但未达上述金额；P3 = 微利或健康，仅作观察。</li>
+      <li>来源数据为导出时点快照，销量与成本随平台活动变动，建议每周刷新一次。</li>
+    </ul>
+  </details>
 </div>
 
-<div class="foot">内部数据 · 请勿外传 &nbsp;|&nbsp; 单位毛利 = 净收入(USD) × 6.4 − 采购单价 − 费用单价</div>
+<div class="foot">内部数据 · 请勿外传 &nbsp;|&nbsp; 单位：金额人民币 ¥，收入 USD 已按 6.4 折算</div>
 </div>
 
 <script>const META={"rows": 582, "skus": 285, "ids": 550, "rate": 6.4, "src": "美客多 全托1店-毛利异常商品.xlsx", "filled": 0};
 const DATA=[{"sku": "X455-HEI", "name": "X455 磁吸充电器【黑色】", "rev": 1.56, "cost": 17.7, "fee": 1.15, "gp": -8.87, "gm": -90.0, "dev": "尹琼", "s30": 23.0, "s90": 33.0, "n": 3, "l30": -204.01, "l90": -292.71}, {"sku": "ZXD01-HEI-BG", "name": "ZXD01 转向灯【黑色-白光】", "rev": 1.69, "cost": 20.9, "fee": 0.96, "gp": -11.04, "gm": -104.0, "dev": "孙艳招", "s30": 14.0, "s90": 26.0, "n": 8, "l30": -154.56, "l90": -287.04}, {"sku": "ST08-HEI-L", "name": "ST08 骑行手套【黑色-L】", "rev": 1.5, "cost": 19.5, "fee": 0.27, "gp": -10.17, "gm": -108.0, "dev": "孙艳招", "s30": 13.0, "s90": 17.0, "n": 5, "l30": -132.21, "l90": -172.89}, {"sku": "ZXD01-HON-BG", "name": "ZXD01 转向灯【红色-白光】", "rev": 1.69, "cost": 20.9, "fee": 1.2, "gp": -11.28, "gm": -106.0, "dev": "孙艳招", "s30": 11.0, "s90": 18.0, "n": 6, "l30": -124.08, "l90": -203.04}, {"sku": "FSB01-HEI", "name": "FSB01 防水背包【黑色】", "rev": 1.71, "cost": 15.0, "fee": 1.5, "gp": -5.56, "gm": -52.0, "dev": "尹琼", "s30": 20.0, "s90": 30.0, "n": 4, "l30": -111.2, "l90": -166.8}, {"sku": "BJ03-BAI", "name": "BJ03 笔记本【白色】", "rev": 2.51, "cost": 27.8, "fee": 0.0, "gp": -11.74, "gm": -75.0, "dev": "尹琼", "s30": 6.0, "s90": 6.0, "n": 1, "l30": -70.44, "l90": -70.44}, {"sku": "C28-HEI", "name": "C28 音频适配器", "rev": 0.94, "cost": 10.5, "fee": 0.55, "gp": -5.03, "gm": -85.0, "dev": "98", "s30": 14.0, "s90": 23.0, "n": 1, "l30": -70.42, "l90": -115.69}, {"sku": "86003841", "name": "ZYT7 镶钻座椅套 + JD1脚垫（套装）【黑色-9pc 座椅套】", "rev": 5.2, "cost": 68.0, "fee": 0.0, "gp": -34.72, "gm": -106.0, "dev": "陈碧霞", "s30": 2.0, "s90": 11.0, "n": 1, "l30": -69.44, "l90": -381.92}, {"sku": "PB13-P-A678-11-FEN", "name": "PB13-SP 旋转半包分体【书本】笔槽Air 6/7/8【11寸】粉色", "rev": 2.46, "cost": 26.88, "fee": 0.0, "gp": -11.14, "gm": -72.0, "dev": "超级管理员", "s30": 6.0, "s90": 6.0, "n": 1, "l30": -66.84, "l90": -66.84}, {"sku": "SNX8-M-MI", "name": "SNX8 收纳箱【M-米杏色】", "rev": 1.19, "cost": 11.8, "fee": 0.81, "gp": -4.99, "gm": -67.0, "dev": "孙艳招", "s30": 13.0, "s90": 26.0, "n": 2, "l30": -64.87, "l90": -129.74}, {"sku": "MKB03-CAI-80P", "name": "MKB03 马克笔-80色", "rev": 4.62, "cost": 48.0, "fee": 2.15, "gp": -20.58, "gm": -71.0, "dev": "罗金相", "s30": 3.0, "s90": 4.0, "n": 2, "l30": -61.74, "l90": -82.32}, {"sku": "PB19-JP-A678-11-FEN", "name": "PB19-JP 翻盖皮套+键盘Air 6/7/8【11寸】粉色", "rev": 3.4, "cost": 35.88, "fee": 0.0, "gp": -14.12, "gm": -66.0, "dev": "超级管理员", "s30": 4.0, "s90": 4.0, "n": 1, "l30": -56.48, "l90": -56.48}, {"sku": "ZXD01-BAI-BG", "name": "ZXD01 转向灯【白色-白光】", "rev": 1.69, "cost": 20.9, "fee": 1.2, "gp": -11.28, "gm": -106.0, "dev": "孙艳招", "s30": 5.0, "s90": 9.0, "n": 7, "l30": -56.4, "l90": -101.52}, {"sku": "RH-001-BAI-XH", "name": "RH-001 圣诞礼盒【白色-雪花】", "rev": 3.6, "cost": 36.0, "fee": 4.5, "gp": -17.46, "gm": -77.0, "dev": "罗金相", "s30": 3.0, "s90": 4.0, "n": 2, "l30": -52.38, "l90": -69.84}, {"sku": "86003100", "name": "ZYT2 单线菱格绗绣括号皮-全套【灰色】9pc", "rev": 3.67, "cost": 49.0, "fee": 0.0, "gp": -25.51, "gm": -110.0, "dev": "98", "s30": 2.0, "s90": 48.0, "n": 1, "l30": -51.02, "l90": -1224.48}, {"sku": "GC300-HEI", "name": "GC300 空气检测仪【黑色】", "rev": 4.63, "cost": 55.0, "fee": 0.0, "gp": -25.37, "gm": -87.0, "dev": "尹琼", "s30": 2.0, "s90": 2.0, "n": 1, "l30": -50.74, "l90": -50.74}, {"sku": "ZXD01-LAN-BG", "name": "ZXD01 转向灯【蓝色-白光】", "rev": 1.69, "cost": 20.9, "fee": 0.0, "gp": -10.08, "gm": -95.0, "dev": "孙艳招", "s30": 5.0, "s90": 8.0, "n": 3, "l30": -50.4, "l90": -80.64}, {"sku": "TZ02-HEI", "name": "TZ02 汽车头枕【黑色】", "rev": 2.38, "cost": 31.0, "fee": 0.92, "gp": -16.69, "gm": -111.0, "dev": "孙艳招", "s30": 3.0, "s90": 14.0, "n": 1, "l30": -50.07, "l90": -233.66}, {"sku": "MWQ01-BAI", "name": "MWQ01 灭蚊器【白色】", "rev": 1.95, "cost": 16.0, "fee": 2.0, "gp": -5.52, "gm": -46.0, "dev": "孙艳招", "s30": 9.0, "s90": 15.0, "n": 1, "l30": -49.68, "l90": -82.8}, {"sku": "86005314", "name": "ZYT20 连体座椅套(单蝶胎纹)前双座【黑色】", "rev": 2.75, "cost": 30.0, "fee": 0.0, "gp": -12.4, "gm": -72.0, "dev": "陈碧霞", "s30": 4.0, "s90": 8.0, "n": 2, "l30": -49.6, "l90": -99.2}, {"sku": "86003034", "name": "ZYT8 布艺双腰线 全套【灰色】9pc", "rev": 2.93, "cost": 35.0, "fee": 0.0, "gp": -16.25, "gm": -88.0, "dev": "98", "s30": 3.0, "s90": 7.0, "n": 1, "l30": -48.75, "l90": -113.75}, {"sku": "86005242", "name": "FTD4 车载防踢袋-牛津【黑色】2pc", "rev": 0.98, "cost": 13.2, "fee": 0.0, "gp": -6.93, "gm": -112.0, "dev": "赵伟", "s30": 7.0, "s90": 9.0, "n": 4, "l30": -48.51, "l90": -62.37}, {"sku": "86003106", "name": "ZYT7 镶钻立体防滑汽车座椅套-全套【黑色】9pcs", "rev": 3.2, "cost": 68.0, "fee": 0.0, "gp": -47.52, "gm": -234.0, "dev": "陈碧霞", "s30": 1.0, "s90": 2.0, "n": 2, "l30": -47.52, "l90": -95.04}, {"sku": "FXPTZA6-HEHO-6P", "name": "FXPTZ-A6 汽车内饰套装-(菱格拼色皇冠)【 黑红色】6件套", "rev": 2.51, "cost": 31.5, "fee": 0.0, "gp": -15.44, "gm": -98.0, "dev": "陈碧霞", "s30": 3.0, "s90": 3.0, "n": 1, "l30": -46.32, "l90": -46.32}, {"sku": "GH01-A-37P", "name": "GH01 干花【洛丽塔-A】37P", "rev": 1.12, "cost": 12.56, "fee": 0.35, "gp": -5.74, "gm": -82.0, "dev": "98", "s30": 8.0, "s90": 10.0, "n": 1, "l30": -45.92, "l90": -57.4}, {"sku": "86006676", "name": "ZYT31 座椅套(双条对线)全套五座【黑灰色】", "rev": 4.35, "cost": 50.0, "fee": 0.0, "gp": -22.16, "gm": -81.0, "dev": "陈碧霞", "s30": 2.0, "s90": 34.0, "n": 1, "l30": -44.32, "l90": -753.44}, {"sku": "86006675", "name": "ZYT31 座椅套(双条对线)全套五座【黑红色】", "rev": 4.35, "cost": 50.0, "fee": 0.0, "gp": -22.16, "gm": -81.0, "dev": "陈碧霞", "s30": 2.0, "s90": 11.0, "n": 1, "l30": -44.32, "l90": -243.76}, {"sku": "XYD04-NG", "name": "XYD04 云朵夜灯【暖光】", "rev": 1.64, "cost": 14.8, "fee": 0.8, "gp": -5.1, "gm": -50.0, "dev": "罗金相", "s30": 8.0, "s90": 14.0, "n": 3, "l30": -40.8, "l90": -71.4}, {"sku": "86000175", "name": "XJ71 补光灯-黑色", "rev": 2.6, "cost": 30.0, "fee": 0.0, "gp": -13.36, "gm": -82.0, "dev": "98", "s30": 3.0, "s90": 12.0, "n": 2, "l30": -40.08, "l90": -160.32}, {"sku": "ST06-M-HEI-100P", "name": "ST06 一次性手套【M-黑】100PC", "rev": 1.67, "cost": 17.0, "fee": 1.3, "gp": -7.61, "gm": -73.0, "dev": "尹琼", "s30": 5.0, "s90": 12.0, "n": 1, "l30": -38.05, "l90": -91.32}, {"sku": "86005290", "name": "ZYT6 2+1前排座椅套(方块胎纹)前双座【黑色】", "rev": 2.84, "cost": 36.0, "fee": 0.0, "gp": -17.82, "gm": -100.0, "dev": "陈碧霞", "s30": 2.0, "s90": 12.0, "n": 1, "l30": -35.64, "l90": -213.84}, {"sku": "FXPTZA3-BAI-11P", "name": "FXPTZ-A3 车内饰套装-02-满钻【白色】11件套", "rev": 2.16, "cost": 22.5, "fee": 0.0, "gp": -8.68, "gm": -64.0, "dev": "陈碧霞", "s30": 4.0, "s90": 5.0, "n": 2, "l30": -34.72, "l90": -43.4}, {"sku": "GL323-BAI", "name": "GL323 露营灯【白色】", "rev": 1.64, "cost": 15.8, "fee": 1.54, "gp": -6.84, "gm": -67.0, "dev": "罗金相", "s30": 5.0, "s90": 6.0, "n": 1, "l30": -34.2, "l90": -41.04}, {"sku": "FXPTZA5-BAI-8P", "name": "FXPTZ-A5 车内饰套装01-满钻【白色】8件套", "rev": 1.81, "cost": 20.0, "fee": 0.0, "gp": -8.42, "gm": -74.0, "dev": "陈碧霞", "s30": 4.0, "s90": 5.0, "n": 3, "l30": -33.68, "l90": -42.1}, {"sku": "HP04-BAI", "name": "HP04 花盆【哈欠猫咪-白色】", "rev": 0.67, "cost": 5.4, "fee": 0.32, "gp": -1.43, "gm": -35.0, "dev": "孙艳招", "s30": 23.0, "s90": 27.0, "n": 4, "l30": -32.89, "l90": -38.61}, {"sku": "JLB01-FEN", "name": "JLB01 记录本套装【粉色】", "rev": 1.11, "cost": 11.5, "fee": 1.07, "gp": -5.47, "gm": -79.0, "dev": "尹琼", "s30": 6.0, "s90": 14.0, "n": 1, "l30": -32.82, "l90": -76.58}, {"sku": "BGD02-3SE-10D", "name": "BGD02 补光灯【三色-10灯】", "rev": 1.54, "cost": 16.0, "fee": 1.83, "gp": -7.97, "gm": -82.0, "dev": "罗金相", "s30": 4.0, "s90": 4.0, "n": 1, "l30": -31.88, "l90": -31.88}, {"sku": "TZ02-XHUI", "name": "TZ02 汽车头枕【杏灰】", "rev": 2.38, "cost": 31.0, "fee": 0.0, "gp": -15.77, "gm": -105.0, "dev": "孙艳招", "s30": 2.0, "s90": 3.0, "n": 1, "l30": -31.54, "l90": -47.31}, {"sku": "CD003-HEI", "name": "CD003 电动车灯【12W-黑色】", "rev": 1.16, "cost": 11.0, "fee": 0.8, "gp": -4.38, "gm": -61.0, "dev": "孙艳招", "s30": 7.0, "s90": 17.0, "n": 1, "l30": -30.66, "l90": -74.46}, {"sku": "PB02-YP-IP1011-109-FEN", "name": "PB02-YP 亚克力【Y折】笔槽iPad 10/11 A16【10.9寸】粉色", "rev": 2.0, "cost": 17.88, "fee": 0.0, "gp": -5.08, "gm": -41.0, "dev": "超级管理员", "s30": 6.0, "s90": 6.0, "n": 2, "l30": -30.48, "l90": -30.48}, {"sku": "LJT-A6-HEI", "name": "LJT-A6 车载垃圾桶【黑色】", "rev": 0.36, "cost": 3.5, "fee": 0.83, "gp": -2.03, "gm": -89.0, "dev": "孙艳招", "s30": 15.0, "s90": 31.0, "n": 1, "l30": -30.45, "l90": -62.93}, {"sku": "QB02-HEHO-100P", "name": "QB02 铅笔【黑红款】100PC", "rev": 1.15, "cost": 11.0, "fee": 1.3, "gp": -4.94, "gm": -69.0, "dev": "尹琼", "s30": 6.0, "s90": 6.0, "n": 1, "l30": -29.64, "l90": -29.64}, {"sku": "86005310", "name": "ZYT20 连体座椅套(单蝶胎纹)前双座【玫红色】", "rev": 2.51, "cost": 30.0, "fee": 0.0, "gp": -13.94, "gm": -88.0, "dev": "陈碧霞", "s30": 2.0, "s90": 3.0, "n": 1, "l30": -27.88, "l90": -41.82}, {"sku": "CC-K05-HEI", "name": "CC-K05 厨房剪刀【黑色】", "rev": 1.2, "cost": 12.5, "fee": 0.25, "gp": -5.07, "gm": -68.0, "dev": "尹琼", "s30": 5.0, "s90": 13.0, "n": 1, "l30": -25.35, "l90": -65.91}, {"sku": "ZMD-3-10CM", "name": "ZMD-3 照明灯【105MM】", "rev": 0.96, "cost": 8.8, "fee": 0.5, "gp": -3.16, "gm": -53.0, "dev": "孙艳招", "s30": 8.0, "s90": 12.0, "n": 1, "l30": -25.28, "l90": -37.92}, {"sku": "TBT001-HEI", "name": "TBT001 收纳框【黑色】", "rev": 1.31, "cost": 11.5, "fee": 1.87, "gp": -4.99, "gm": -61.0, "dev": "尹琼", "s30": 5.0, "s90": 10.0, "n": 1, "l30": -24.95, "l90": -49.9}, {"sku": "BX02-LV", "name": "BX02 反光背心【绿色】", "rev": 1.92, "cost": 19.8, "fee": 0.62, "gp": -8.13, "gm": -68.0, "dev": "98", "s30": 3.0, "s90": 6.0, "n": 1, "l30": -24.39, "l90": -48.78}, {"sku": "FXPTZA5-HEI-8P", "name": "FXPTZ-A5 车内饰套装01-满钻【黑色】8件套", "rev": 1.91, "cost": 20.0, "fee": 0.0, "gp": -7.78, "gm": -65.0, "dev": "陈碧霞", "s30": 3.0, "s90": 6.0, "n": 1, "l30": -23.34, "l90": -46.68}, {"sku": "ZWJ04-50CM-TOU-L", "name": "ZWJ04 置物架【50CM透白-L】毛巾架", "rev": 1.87, "cost": 15.7, "fee": 2.08, "gp": -5.81, "gm": -50.0, "dev": "尹琼", "s30": 4.0, "s90": 12.0, "n": 1, "l30": -23.24, "l90": -69.72}, {"sku": "CC-K05-YIN", "name": "CC-K05 厨房剪刀【银色】", "rev": 1.16, "cost": 11.5, "fee": 0.53, "gp": -4.61, "gm": -64.0, "dev": "尹琼", "s30": 5.0, "s90": 8.0, "n": 2, "l30": -23.05, "l90": -36.88}, {"sku": "SNH03-DG", "name": "SNH03 收纳盒-单个", "rev": 0.35, "cost": 2.0, "fee": 0.65, "gp": -0.41, "gm": -20.0, "dev": "孙艳招", "s30": 56.0, "s90": 103.0, "n": 2, "l30": -22.96, "l90": -42.23}, {"sku": "FXPTZ-LGPZ-HEI-6P", "name": "FXPTZ 方向盘(绣花排钻)-套装【黑色】6pc", "rev": 2.2, "cost": 25.5, "fee": 0.0, "gp": -11.42, "gm": -83.0, "dev": "陈碧霞", "s30": 2.0, "s90": 2.0, "n": 1, "l30": -22.84, "l90": -22.84}, {"sku": "KC01", "name": "KC01 测量卡尺", "rev": 0.67, "cost": 7.5, "fee": 0.56, "gp": -3.77, "gm": -90.0, "dev": "尹琼", "s30": 6.0, "s90": 23.0, "n": 2, "l30": -22.62, "l90": -86.71}, {"sku": "86002944", "name": "CZWD02 汽车后备箱置物袋-网贷拼接", "rev": 0.87, "cost": 8.8, "fee": 0.0, "gp": -3.23, "gm": -60.0, "dev": "陈碧霞", "s30": 7.0, "s90": 19.0, "n": 3, "l30": -22.61, "l90": -61.37}, {"sku": "KC02", "name": "KC02 带表卡尺", "rev": 5.16, "cost": 55.0, "fee": 0.0, "gp": -21.98, "gm": -68.0, "dev": "尹琼", "s30": 1.0, "s90": 3.0, "n": 1, "l30": -21.98, "l90": -65.94}, {"sku": "HP-YY", "name": "HP-YY 摇椅花盆", "rev": 1.73, "cost": 16.56, "fee": 0.0, "gp": -5.49, "gm": -51.0, "dev": "孙艳招", "s30": 4.0, "s90": 12.0, "n": 2, "l30": -21.96, "l90": -65.88}, {"sku": "SND01-HEI", "name": "SND01 座椅收纳袋【黑色】", "rev": 1.2, "cost": 9.5, "fee": 1.23, "gp": -3.05, "gm": -41.0, "dev": "孙艳招", "s30": 7.0, "s90": 21.0, "n": 1, "l30": -21.35, "l90": -64.05}, {"sku": "MD03-HUI", "name": "MD03 防撞门挡【灰色】", "rev": 0.88, "cost": 10.08, "fee": 0.86, "gp": -5.31, "gm": -96.0, "dev": "尹琼", "s30": 4.0, "s90": 16.0, "n": 1, "l30": -21.24, "l90": -84.96}, {"sku": "C161-HEHO", "name": "C161 滑雪镜【黑红】", "rev": 1.11, "cost": 10.59, "fee": 0.0, "gp": -3.49, "gm": -51.0, "dev": "98", "s30": 6.0, "s90": 6.0, "n": 3, "l30": -20.94, "l90": -20.94}, {"sku": "86005243", "name": "FTD4 车载防踢袋-牛津【玫红色】2pc", "rev": 0.98, "cost": 13.2, "fee": 0.0, "gp": -6.93, "gm": -112.0, "dev": "陈碧霞", "s30": 3.0, "s90": 3.0, "n": 1, "l30": -20.79, "l90": -20.79}, {"sku": "152-ymye-HEI", "name": "152-ymye 午餐包【黑色】", "rev": 1.58, "cost": 17.0, "fee": 0.0, "gp": -6.89, "gm": -70.0, "dev": "尹琼", "s30": 3.0, "s90": 6.0, "n": 1, "l30": -20.67, "l90": -41.34}, {"sku": "ST02-HEI-L", "name": "ST02 战术手套【黑色-L】", "rev": 0.82, "cost": 6.09, "fee": 0.13, "gp": -0.97, "gm": -20.0, "dev": "孙艳招", "s30": 21.0, "s90": 49.0, "n": 1, "l30": -20.37, "l90": -47.53}, {"sku": "CXX04-YIN", "name": "CXX04 香薰摆件-清扬【银色】", "rev": 1.71, "cost": 16.0, "fee": 0.0, "gp": -5.06, "gm": -48.0, "dev": "尹琼", "s30": 4.0, "s90": 6.0, "n": 1, "l30": -20.24, "l90": -30.36}, {"sku": "FXPT-LGPZ-FEN-1P", "name": "FXPT 方向盘套(绣花排钻)-【粉】1PC", "rev": 0.47, "cost": 4.8, "fee": 0.0, "gp": -1.79, "gm": -61.0, "dev": "陈碧霞", "s30": 11.0, "s90": 13.0, "n": 3, "l30": -19.69, "l90": -23.27}, {"sku": "TD03-CD", "name": "TD03 台灯【充电-4K光】", "rev": 1.31, "cost": 17.8, "fee": 0.0, "gp": -9.42, "gm": -114.0, "dev": "罗金相", "s30": 2.0, "s90": 2.0, "n": 2, "l30": -18.84, "l90": -18.84}, {"sku": "PB09-P-A678-11-HEI", "name": "PB09-SP 旋转半包【书本】笔槽Air 6/7/8【11寸】黑色", "rev": 1.97, "cost": 18.88, "fee": 0.0, "gp": -6.27, "gm": -51.0, "dev": "超级管理员", "s30": 3.0, "s90": 4.0, "n": 2, "l30": -18.81, "l90": -25.08}, {"sku": "YHQ02-LAN", "name": "YHQ02 邮票压花器【蓝色】", "rev": 1.16, "cost": 12.0, "fee": 0.0, "gp": -4.58, "gm": -63.0, "dev": "尹琼", "s30": 4.0, "s90": 10.0, "n": 1, "l30": -18.32, "l90": -45.8}, {"sku": "BG0136-TZ", "name": "BG0136 冰块模具套装", "rev": 1.16, "cost": 12.0, "fee": 0.0, "gp": -4.58, "gm": -63.0, "dev": "尹琼", "s30": 4.0, "s90": 4.0, "n": 2, "l30": -18.32, "l90": -18.32}, {"sku": "86003763", "name": "HJ-A2 护肩-菱格拼色皇冠【拼粉】2pc", "rev": 1.16, "cost": 12.0, "fee": 0.0, "gp": -4.58, "gm": -63.0, "dev": "98", "s30": 4.0, "s90": 6.0, "n": 2, "l30": -18.32, "l90": -27.48}, {"sku": "GJMJ01-A", "name": "GJMJ01 硅胶模具套装-A", "rev": 1.12, "cost": 13.0, "fee": 0.0, "gp": -5.83, "gm": -83.0, "dev": "尹琼", "s30": 3.0, "s90": 6.0, "n": 2, "l30": -17.49, "l90": -34.98}, {"sku": "86002826", "name": "BL-1 波浪斜口蜡烛-遥控【蓝色】6pcs", "rev": 2.78, "cost": 22.12, "fee": 0.0, "gp": -4.33, "gm": -26.0, "dev": "98", "s30": 4.0, "s90": 5.0, "n": 2, "l30": -17.32, "l90": -21.65}, {"sku": "86006829", "name": "CXYJJ-1 眼镜夹-皮革磁吸【黑色】1pc", "rev": 0.4, "cost": 4.0, "fee": 0.0, "gp": -1.44, "gm": -58.0, "dev": "陈碧霞", "s30": 12.0, "s90": 30.0, "n": 2, "l30": -17.28, "l90": -43.2}, {"sku": "86000715", "name": "HUB-KG1 7口长条开关HUB", "rev": 0.39, "cost": 4.66, "fee": 0.0, "gp": -2.16, "gm": -88.0, "dev": "98", "s30": 8.0, "s90": 27.0, "n": 1, "l30": -17.28, "l90": -58.32}, {"sku": "FDL01-HEI", "name": "FDL01 充电分离器【黑色】", "rev": 1.06, "cost": 12.5, "fee": 0.01, "gp": -5.73, "gm": -86.0, "dev": "许敏璇", "s30": 3.0, "s90": 3.0, "n": 1, "l30": -17.19, "l90": -17.19}, {"sku": "MWD02-BAI-CD", "name": "MWD02 灭蚊灯-水母【充电-白】", "rev": 0.91, "cost": 11.5, "fee": 0.0, "gp": -5.68, "gm": -99.0, "dev": "孙艳招", "s30": 3.0, "s90": 4.0, "n": 3, "l30": -17.04, "l90": -22.72}, {"sku": "FXPTZ-LGPZ-HEI-5P", "name": "FXPTZ 方向盘(绣花排钻)-套装【黑色】5pc", "rev": 1.65, "cost": 19.0, "fee": 0.0, "gp": -8.44, "gm": -81.0, "dev": "陈碧霞", "s30": 2.0, "s90": 2.0, "n": 1, "l30": -16.88, "l90": -16.88}, {"sku": "DXY-07-A-BG", "name": "DXY-07 夜灯【A亚麻-白光】", "rev": 0.95, "cost": 10.8, "fee": 0.88, "gp": -5.6, "gm": -94.0, "dev": "罗金相", "s30": 3.0, "s90": 5.0, "n": 1, "l30": -16.8, "l90": -28.0}, {"sku": "FXPTZA5-FEN-8P", "name": "FXPTZ-A5 车内饰套装01-满钻【全粉色】8件套", "rev": 1.82, "cost": 20.0, "fee": 0.0, "gp": -8.35, "gm": -73.0, "dev": "陈碧霞", "s30": 2.0, "s90": 6.0, "n": 2, "l30": -16.7, "l90": -50.1}, {"sku": "SKQ01-125MM", "name": "SKQ01 水口钳【125MM】", "rev": 1.43, "cost": 14.7, "fee": 0.0, "gp": -5.55, "gm": -62.0, "dev": "尹琼", "s30": 3.0, "s90": 6.0, "n": 1, "l30": -16.65, "l90": -33.3}, {"sku": "PB09-P-IP789-102-TLA", "name": "PB09-SP 旋转半包【书本】笔槽iPad 7/8/9【10.2寸】天蓝色", "rev": 2.32, "cost": 18.88, "fee": 0.0, "gp": -4.03, "gm": -29.0, "dev": "超级管理员", "s30": 4.0, "s90": 7.0, "n": 1, "l30": -16.12, "l90": -28.21}, {"sku": "WJD01-HEI", "name": "WJD01 笔袋【黑色】", "rev": 0.84, "cost": 8.0, "fee": 0.49, "gp": -3.11, "gm": -59.0, "dev": "尹琼", "s30": 5.0, "s90": 8.0, "n": 2, "l30": -15.55, "l90": -24.88}, {"sku": "MKB03-CAI-60P", "name": "MKB03 马克笔-60色", "rev": 3.56, "cost": 36.0, "fee": 2.15, "gp": -15.37, "gm": -69.0, "dev": "罗金相", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -15.37, "l90": -15.37}, {"sku": "GG-2-ZON-4P", "name": "GG-2 翻毛皮金属挂钩【棕色】4PCS", "rev": 1.25, "cost": 15.6, "fee": 0.0, "gp": -7.6, "gm": -97.0, "dev": "98", "s30": 2.0, "s90": 4.0, "n": 1, "l30": -15.2, "l90": -30.4}, {"sku": "GG-2-HUI-4P", "name": "GG-2 翻毛皮金属挂钩【灰色】4PCS", "rev": 1.25, "cost": 15.6, "fee": 0.0, "gp": -7.6, "gm": -97.0, "dev": "98", "s30": 2.0, "s90": 3.0, "n": 1, "l30": -15.2, "l90": -22.8}, {"sku": "L-003-60CM-HUI", "name": "L-003 棉被袋-横款【灰色】", "rev": 0.34, "cost": 3.3, "fee": 0.54, "gp": -1.66, "gm": -78.0, "dev": "孙艳招", "s30": 9.0, "s90": 13.0, "n": 1, "l30": -14.94, "l90": -21.58}, {"sku": "86005219", "name": "XJ102 补光灯 白色 【800mAH】", "rev": 1.19, "cost": 15.0, "fee": 0.0, "gp": -7.38, "gm": -99.0, "dev": "98", "s30": 2.0, "s90": 2.0, "n": 4, "l30": -14.76, "l90": -14.76}, {"sku": "FXPTZA6-FEN-6P", "name": "FXPTZ-A6 汽车内饰套装-(菱格拼色皇冠)【粉色】6件套", "rev": 2.63, "cost": 31.5, "fee": 0.0, "gp": -14.67, "gm": -89.0, "dev": "陈碧霞", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -14.67, "l90": -14.67}, {"sku": "QPD-026-80W-HEI", "name": "QPD-026 照明灯【80W-黑色】", "rev": 1.4, "cost": 11.76, "fee": 0.74, "gp": -3.54, "gm": -41.0, "dev": "罗金相", "s30": 4.0, "s90": 8.0, "n": 1, "l30": -14.16, "l90": -28.32}, {"sku": "MTG01-HON", "name": "MTG01 摩托车护手【红色】", "rev": 2.24, "cost": 16.0, "fee": 1.17, "gp": -2.83, "gm": -21.0, "dev": "98", "s30": 5.0, "s90": 5.0, "n": 1, "l30": -14.15, "l90": -14.15}, {"sku": "K12-LAN-SM", "name": "K12 蓝牙音箱【蓝色-双麦】", "rev": 1.55, "cost": 13.33, "fee": 1.28, "gp": -4.69, "gm": -49.0, "dev": "孙艳招", "s30": 3.0, "s90": 3.0, "n": 2, "l30": -14.07, "l90": -14.07}, {"sku": "86004370", "name": "HGTZ-1 汽车内饰套装-菱格皇冠【粉色】6件套", "rev": 2.85, "cost": 32.0, "fee": 0.0, "gp": -13.76, "gm": -77.0, "dev": "赵伟", "s30": 1.0, "s90": 2.0, "n": 1, "l30": -13.76, "l90": -27.52}, {"sku": "86003762", "name": "HJ-A2 护肩-菱格拼色皇冠【拼灰】2pc", "rev": 1.16, "cost": 12.0, "fee": 0.0, "gp": -4.58, "gm": -63.0, "dev": "98", "s30": 3.0, "s90": 4.0, "n": 1, "l30": -13.74, "l90": -18.32}, {"sku": "NL002-50NUA-1P", "name": "ET-2370 感应灯条50cm【暖光】", "rev": 0.63, "cost": 5.6, "fee": 0.0, "gp": -1.57, "gm": -40.0, "dev": "98", "s30": 8.0, "s90": 34.0, "n": 1, "l30": -12.56, "l90": -53.38}, {"sku": "FXPT02-HUI", "name": "FXPT02 方向盘套-压花【灰色】", "rev": 0.84, "cost": 8.0, "fee": 1.51, "gp": -4.13, "gm": -78.0, "dev": "孙艳招", "s30": 3.0, "s90": 12.0, "n": 2, "l30": -12.39, "l90": -49.56}, {"sku": "yb032-HEI", "name": "yb032 厨房剪刀【黑色】", "rev": 1.22, "cost": 14.0, "fee": 0.0, "gp": -6.19, "gm": -81.0, "dev": "尹琼", "s30": 2.0, "s90": 3.0, "n": 1, "l30": -12.38, "l90": -18.57}, {"sku": "ZB03-B", "name": "ZB03 万圣节桌布-B款", "rev": 0.36, "cost": 4.5, "fee": 0.8, "gp": -3.0, "gm": -132.0, "dev": "孙艳招", "s30": 4.0, "s90": 6.0, "n": 3, "l30": -12.0, "l90": -18.0}, {"sku": "AJ01-ZON-70P", "name": "AJ01 键盘按键【棕色】70PC", "rev": 1.27, "cost": 13.7, "fee": 0.3, "gp": -5.87, "gm": -74.0, "dev": "许敏璇", "s30": 2.0, "s90": 2.0, "n": 2, "l30": -11.74, "l90": -11.74}, {"sku": "SNX6-HEI", "name": "SNX6 汽车收纳箱【黑色】", "rev": 0.51, "cost": 5.05, "fee": 1.01, "gp": -2.8, "gm": -87.0, "dev": "尹琼", "s30": 4.0, "s90": 12.0, "n": 2, "l30": -11.2, "l90": -33.6}, {"sku": "86003222", "name": "JF01 方向盘套-皮革点钻(无内圈)【粉色】", "rev": 0.58, "cost": 6.5, "fee": 0.0, "gp": -2.79, "gm": -77.0, "dev": "陈碧霞", "s30": 4.0, "s90": 7.0, "n": 3, "l30": -11.16, "l90": -19.53}, {"sku": "FXPTZ-LGPZ-FEN-6P", "name": "FXPTZ 方向盘(绣花排钻)-套装【粉色】6pc", "rev": 2.27, "cost": 25.5, "fee": 0.0, "gp": -10.97, "gm": -77.0, "dev": "陈碧霞", "s30": 1.0, "s90": 2.0, "n": 1, "l30": -10.97, "l90": -21.94}, {"sku": "86003466", "name": "PG-FXP 方向盘套-皮革刺绣【黑线】1pc", "rev": 0.49, "cost": 4.0, "fee": 0.0, "gp": -0.86, "gm": -29.0, "dev": "陈碧霞", "s30": 12.0, "s90": 19.0, "n": 1, "l30": -10.32, "l90": -16.34}, {"sku": "SNX3-HEI", "name": "SNX3 汽车收纳箱【黑色】", "rev": 1.79, "cost": 16.5, "fee": 0.0, "gp": -5.04, "gm": -46.0, "dev": "尹琼", "s30": 2.0, "s90": 6.0, "n": 2, "l30": -10.08, "l90": -30.24}, {"sku": "YK01-HUI", "name": "YK01 汽车腰靠【灰色】", "rev": 2.68, "cost": 17.9, "fee": 1.67, "gp": -2.42, "gm": -16.0, "dev": "孙艳招", "s30": 4.0, "s90": 16.0, "n": 4, "l30": -9.68, "l90": -38.72}, {"sku": "86003435", "name": "B2 美规车牌框【黑色】2pc", "rev": 1.32, "cost": 18.0, "fee": 0.0, "gp": -9.55, "gm": -115.0, "dev": "98", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -9.55, "l90": -9.55}, {"sku": "YHQ02-FEN", "name": "YHQ02 邮票压花器【粉色】", "rev": 1.16, "cost": 12.0, "fee": 0.0, "gp": -4.58, "gm": -63.0, "dev": "尹琼", "s30": 2.0, "s90": 4.0, "n": 1, "l30": -9.16, "l90": -18.32}, {"sku": "ZL-009-5W", "name": "ZL-009 头戴灯", "rev": 1.3, "cost": 12.87, "fee": 0.0, "gp": -4.55, "gm": -56.0, "dev": "罗金相", "s30": 2.0, "s90": 8.0, "n": 1, "l30": -9.1, "l90": -36.4}, {"sku": "JX089-30CM-SHL", "name": "JX089 工具包PE【13寸-深蓝】", "rev": 1.43, "cost": 12.5, "fee": 1.13, "gp": -4.48, "gm": -50.0, "dev": "尹琼", "s30": 2.0, "s90": 6.0, "n": 2, "l30": -8.96, "l90": -26.88}, {"sku": "FXPT-LGPZ-ZI-1P", "name": "FXPT 方向盘套(绣花排钻)-【紫】1PC", "rev": 0.47, "cost": 4.8, "fee": 0.0, "gp": -1.79, "gm": -61.0, "dev": "陈碧霞", "s30": 5.0, "s90": 5.0, "n": 2, "l30": -8.95, "l90": -8.95}, {"sku": "XYD08-HEI-NG-A", "name": "XYD08 小夜灯-暖光【黑色-米黄罩】", "rev": 1.05, "cost": 14.3, "fee": 1.15, "gp": -8.73, "gm": -131.0, "dev": "罗金相", "s30": 1.0, "s90": 7.0, "n": 3, "l30": -8.73, "l90": -61.11}, {"sku": "MFS01-FEN-16P", "name": "MFS01 美发梳套装【粉色-16件】", "rev": 0.96, "cost": 9.0, "fee": 0.0, "gp": -2.86, "gm": -48.0, "dev": "孙艳招", "s30": 3.0, "s90": 6.0, "n": 1, "l30": -8.58, "l90": -17.16}, {"sku": "170T-JIU-S", "name": "170T 雨伞【96CM-酒红】", "rev": 0.79, "cost": 6.5, "fee": 0.67, "gp": -2.11, "gm": -43.0, "dev": "孙艳招", "s30": 4.0, "s90": 4.0, "n": 1, "l30": -8.44, "l90": -8.44}, {"sku": "SJX03-HUI", "name": "SJX03 快充一拖三【1.2米-灰色】", "rev": 0.65, "cost": 6.24, "fee": 0.01, "gp": -2.09, "gm": -52.0, "dev": "孙艳招", "s30": 4.0, "s90": 11.0, "n": 1, "l30": -8.36, "l90": -22.99}, {"sku": "FXPT02-MI", "name": "FXPT02 方向盘套-压花【米色】", "rev": 0.84, "cost": 8.0, "fee": 1.51, "gp": -4.13, "gm": -78.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 2, "l30": -8.26, "l90": -8.26}, {"sku": "BH02-HEI", "name": "BH02 笔盒【黑色】", "rev": 1.23, "cost": 12.0, "fee": 0.0, "gp": -4.13, "gm": -54.0, "dev": "孙艳招", "s30": 2.0, "s90": 8.0, "n": 1, "l30": -8.26, "l90": -33.04}, {"sku": "TYJ01-HEIH", "name": "TYJ01 太阳镜-C【黑框灰片】", "rev": 0.48, "cost": 4.5, "fee": 0.63, "gp": -2.06, "gm": -69.0, "dev": "罗金相", "s30": 4.0, "s90": 7.0, "n": 1, "l30": -8.24, "l90": -14.42}, {"sku": "86001199", "name": "FSD-5【细绳】夜光防水袋【黑色】", "rev": 0.2, "cost": 2.19, "fee": 0.0, "gp": -0.91, "gm": -73.0, "dev": "98", "s30": 9.0, "s90": 16.0, "n": 2, "l30": -8.19, "l90": -14.56}, {"sku": "JW-520-HL-3M", "name": "JW-520 牵引绳【黄绿-3米】", "rev": 1.37, "cost": 16.95, "fee": 0.0, "gp": -8.18, "gm": -95.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -8.18, "l90": -8.18}, {"sku": "3dxk-HEI-2P", "name": "3dxk 眼罩【黑色】2PC", "rev": 0.47, "cost": 5.16, "fee": 0.48, "gp": -2.63, "gm": -89.0, "dev": "孙艳招", "s30": 3.0, "s90": 10.0, "n": 1, "l30": -7.89, "l90": -26.3}, {"sku": "86004024", "name": "FSD-4 扶手垫-满钻【白色】1PC", "rev": 0.61, "cost": 6.5, "fee": 0.0, "gp": -2.6, "gm": -68.0, "dev": "陈碧霞", "s30": 3.0, "s90": 3.0, "n": 1, "l30": -7.8, "l90": -7.8}, {"sku": "TYD03-BAI-A", "name": "TYD03 投影灯【白色-A款】", "rev": 1.42, "cost": 16.5, "fee": 0.0, "gp": -7.41, "gm": -83.0, "dev": "罗金相", "s30": 1.0, "s90": 3.0, "n": 1, "l30": -7.41, "l90": -22.23}, {"sku": "HP02-M", "name": "HP02 花盆【中号】", "rev": 0.48, "cost": 3.87, "fee": 1.0, "gp": -1.8, "gm": -60.0, "dev": "罗金相", "s30": 4.0, "s90": 5.0, "n": 2, "l30": -7.2, "l90": -9.0}, {"sku": "ZJ-GB01-SJ", "name": "ZJ-GB01 挂脖支架-手机夹", "rev": 1.87, "cost": 18.5, "fee": 0.61, "gp": -7.14, "gm": -61.0, "dev": "98", "s30": 1.0, "s90": 8.0, "n": 1, "l30": -7.14, "l90": -57.12}, {"sku": "WJD01-FEN", "name": "WJD01 笔袋【粉色】", "rev": 0.84, "cost": 8.0, "fee": 0.83, "gp": -3.45, "gm": -66.0, "dev": "尹琼", "s30": 2.0, "s90": 2.0, "n": 1, "l30": -6.9, "l90": -6.9}, {"sku": "BWD01-M-HUI", "name": "BWD01 保温袋【中号-灰色】", "rev": 0.78, "cost": 5.8, "fee": 0.87, "gp": -1.68, "gm": -35.0, "dev": "罗金相", "s30": 4.0, "s90": 6.0, "n": 1, "l30": -6.72, "l90": -10.08}, {"sku": "ZMD-4-20W-400A", "name": "ZMD-4 照明灯【20W-400MAH】", "rev": 0.56, "cost": 3.95, "fee": 0.67, "gp": -1.04, "gm": -30.0, "dev": "孙艳招", "s30": 6.0, "s90": 9.0, "n": 1, "l30": -6.24, "l90": -9.36}, {"sku": "yb032-JIU", "name": "yb032 厨房剪刀【酒红色】", "rev": 1.22, "cost": 14.0, "fee": 0.0, "gp": -6.19, "gm": -81.0, "dev": "尹琼", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -6.19, "l90": -6.19}, {"sku": "ZWJ03-BAI", "name": "ZWJ03 汽车置物架【白色】", "rev": 0.69, "cost": 7.5, "fee": 0.0, "gp": -3.08, "gm": -71.0, "dev": "尹琼", "s30": 2.0, "s90": 4.0, "n": 1, "l30": -6.16, "l90": -12.32}, {"sku": "FXPT02-KAF", "name": "FXPT02 方向盘套-压花【咖啡】", "rev": 0.84, "cost": 8.42, "fee": 0.0, "gp": -3.04, "gm": -58.0, "dev": "孙艳招", "s30": 2.0, "s90": 8.0, "n": 1, "l30": -6.08, "l90": -24.32}, {"sku": "LJT-A4-HEI", "name": "LJT-A4 车载垃圾桶【黑色】", "rev": 1.04, "cost": 10.5, "fee": 2.17, "gp": -6.01, "gm": -92.0, "dev": "尹琼", "s30": 1.0, "s90": 9.0, "n": 1, "l30": -6.01, "l90": -54.09}, {"sku": "YK01-HEI", "name": "YK01 汽车腰靠【黑色】", "rev": 2.68, "cost": 17.9, "fee": 1.22, "gp": -1.97, "gm": -13.0, "dev": "孙艳招", "s30": 3.0, "s90": 12.0, "n": 3, "l30": -5.91, "l90": -23.64}, {"sku": "PB01-3P-A678-11-HEI", "name": "PB01-3P 高透【三折】笔槽Air 6/7/8【11寸】黑色", "rev": 1.56, "cost": 15.88, "fee": 0.0, "gp": -5.9, "gm": -61.0, "dev": "超级管理员", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -5.9, "l90": -5.9}, {"sku": "LJT-A5-YIN", "name": "LJT-A5 车载垃圾桶-【银色】", "rev": 1.06, "cost": 12.0, "fee": 0.49, "gp": -5.71, "gm": -86.0, "dev": "尹琼", "s30": 1.0, "s90": 5.0, "n": 1, "l30": -5.71, "l90": -28.55}, {"sku": "WY125-2PC", "name": "WY125 摩托后视镜【1对】", "rev": 0.53, "cost": 5.1, "fee": 1.08, "gp": -2.79, "gm": -84.0, "dev": "孙艳招", "s30": 2.0, "s90": 11.0, "n": 1, "l30": -5.58, "l90": -30.69}, {"sku": "JLB01-LAN", "name": "JLB01 记录本套装【蓝色】", "rev": 1.11, "cost": 11.5, "fee": 1.15, "gp": -5.55, "gm": -80.0, "dev": "尹琼", "s30": 1.0, "s90": 7.0, "n": 1, "l30": -5.55, "l90": -38.85}, {"sku": "B0065-40MM", "name": "B0065 磁吸贴【40MM】10PC", "rev": 0.15, "cost": 1.2, "fee": 0.44, "gp": -0.68, "gm": -72.0, "dev": "孙艳招", "s30": 8.0, "s90": 19.0, "n": 1, "l30": -5.44, "l90": -12.92}, {"sku": "TT01-BAI", "name": "TT01 一次性头套【白色】100pc", "rev": 0.62, "cost": 4.0, "fee": 0.74, "gp": -0.77, "gm": -21.0, "dev": "98", "s30": 7.0, "s90": 9.0, "n": 2, "l30": -5.39, "l90": -6.93}, {"sku": "86003490", "name": "FXPT-Z2 方向盘套-（菱形）钻【白色】1pc", "rev": 0.51, "cost": 4.6, "fee": 0.0, "gp": -1.34, "gm": -42.0, "dev": "陈碧霞", "s30": 4.0, "s90": 4.0, "n": 3, "l30": -5.36, "l90": -5.36}, {"sku": "SNX2-HEI", "name": "SNX2 汽车收纳箱【黑色】", "rev": 1.79, "cost": 16.5, "fee": 0.0, "gp": -5.04, "gm": -46.0, "dev": "尹琼", "s30": 1.0, "s90": 12.0, "n": 1, "l30": -5.04, "l90": -60.48}, {"sku": "FZJK-HEI", "name": "FZJK 仿真监控【黑色】", "rev": 0.36, "cost": 2.85, "fee": 0.58, "gp": -1.13, "gm": -50.0, "dev": "孙艳招", "s30": 4.0, "s90": 12.0, "n": 1, "l30": -4.52, "l90": -13.56}, {"sku": "MXS01-S", "name": "MXS01 冒险书【小号】", "rev": 0.81, "cost": 6.5, "fee": 0.83, "gp": -2.15, "gm": -43.0, "dev": "尹琼", "s30": 2.0, "s90": 5.0, "n": 1, "l30": -4.3, "l90": -10.75}, {"sku": "BLQ01-HEI", "name": "BLQ01 拔轮器", "rev": 2.36, "cost": 13.0, "fee": 2.21, "gp": -0.11, "gm": -2.0, "dev": "98", "s30": 36.0, "s90": 49.0, "n": 3, "l30": -3.96, "l90": -5.39}, {"sku": "HP04-25CM", "name": "HP04 悬挂花盆-25CM", "rev": 1.0, "cost": 5.34, "fee": 1.92, "gp": -0.86, "gm": -15.0, "dev": "罗金相", "s30": 4.0, "s90": 6.0, "n": 1, "l30": -3.44, "l90": -5.16}, {"sku": "86005235", "name": "FTD4 车载防踢袋-牛津【玫红色】1pc", "rev": 0.51, "cost": 6.6, "fee": 0.0, "gp": -3.34, "gm": -104.0, "dev": "陈碧霞", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -3.34, "l90": -3.34}, {"sku": "86005000", "name": "FXPT-6 方向盘套-菱格皇冠【无内圈 白色】", "rev": 0.67, "cost": 7.5, "fee": 0.0, "gp": -3.21, "gm": -76.0, "dev": "陈碧霞", "s30": 1.0, "s90": 2.0, "n": 1, "l30": -3.21, "l90": -6.42}, {"sku": "MY01-LV", "name": "MY01 雨衣帽檐【绿色】", "rev": 0.15, "cost": 1.0, "fee": 0.75, "gp": -0.79, "gm": -84.0, "dev": "孙艳招", "s30": 4.0, "s90": 13.0, "n": 4, "l30": -3.16, "l90": -10.27}, {"sku": "86002338", "name": "长条HUB套装【7口+7槽 理线器】组合", "rev": 0.72, "cost": 5.66, "fee": 0.0, "gp": -1.05, "gm": -24.0, "dev": "98", "s30": 3.0, "s90": 6.0, "n": 1, "l30": -3.15, "l90": -6.3}, {"sku": "ZJSN-4-HEI", "name": "ZJSN-4 汽车纸巾盒【黑色】", "rev": 0.31, "cost": 4.6, "fee": 0.5, "gp": -3.12, "gm": -159.0, "dev": "孙艳招", "s30": 1.0, "s90": 7.0, "n": 4, "l30": -3.12, "l90": -21.84}, {"sku": "86001129", "name": "HMG-1 后视镜刮雨器-海绵款【黑色】", "rev": 0.27, "cost": 2.7, "fee": 0.0, "gp": -0.97, "gm": -58.0, "dev": "98", "s30": 3.0, "s90": 8.0, "n": 1, "l30": -2.91, "l90": -7.76}, {"sku": "QJ01-10P", "name": "QJ01 清洁剂【10PCS】", "rev": 0.13, "cost": 0.8, "fee": 0.25, "gp": -0.22, "gm": -28.0, "dev": "孙艳招", "s30": 13.0, "s90": 29.0, "n": 2, "l30": -2.86, "l90": -6.38}, {"sku": "XCS01-HUI", "name": "XCS01 擦车刷【灰色】", "rev": 0.58, "cost": 5.0, "fee": 1.5, "gp": -2.79, "gm": -77.0, "dev": "孙艳招", "s30": 1.0, "s90": 6.0, "n": 1, "l30": -2.79, "l90": -16.74}, {"sku": "86003221", "name": "JF01 方向盘套-皮革点钻(无内圈)【黑色】", "rev": 0.58, "cost": 6.5, "fee": 0.0, "gp": -2.79, "gm": -77.0, "dev": "陈碧霞", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -2.79, "l90": -2.79}, {"sku": "86001198", "name": "FSD-5【细绳】夜光防水袋【白色】", "rev": 0.2, "cost": 2.19, "fee": 0.0, "gp": -0.91, "gm": -73.0, "dev": "98", "s30": 3.0, "s90": 8.0, "n": 2, "l30": -2.73, "l90": -7.28}, {"sku": "FXPT-XF-HEI-1P", "name": "FXPT 方向盘套-绗缝【黑色】1PC", "rev": 0.41, "cost": 5.0, "fee": 0.0, "gp": -2.38, "gm": -92.0, "dev": "陈碧霞", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -2.38, "l90": -2.38}, {"sku": "YHB01-LAN", "name": "YHB01 油画笔【蓝色】", "rev": 0.36, "cost": 2.19, "fee": 0.37, "gp": -0.26, "gm": -13.0, "dev": "98", "s30": 9.0, "s90": 14.0, "n": 4, "l30": -2.34, "l90": -3.64}, {"sku": "TDS-M2-BAI", "name": "TDS-M2 水质测试仪【白色】", "rev": 0.44, "cost": 4.5, "fee": 0.57, "gp": -2.25, "gm": -82.0, "dev": "尹琼", "s30": 1.0, "s90": 5.0, "n": 1, "l30": -2.25, "l90": -11.25}, {"sku": "ZJ02-HEI", "name": "ZJ02 手机支架【黑色】", "rev": 0.4, "cost": 4.8, "fee": 0.0, "gp": -2.24, "gm": -89.0, "dev": "孙艳招", "s30": 1.0, "s90": 3.0, "n": 1, "l30": -2.24, "l90": -6.72}, {"sku": "ZB03-A", "name": "ZB03 万圣节桌布-A款", "rev": 0.36, "cost": 4.5, "fee": 0.0, "gp": -2.2, "gm": -97.0, "dev": "孙艳招", "s30": 1.0, "s90": 3.0, "n": 2, "l30": -2.2, "l90": -6.6}, {"sku": "86002179", "name": "GW0282 固线器-【白色】3PCS", "rev": 0.35, "cost": 3.3, "fee": 0.0, "gp": -1.06, "gm": -49.0, "dev": "98", "s30": 2.0, "s90": 8.0, "n": 1, "l30": -2.12, "l90": -8.48}, {"sku": "86004510", "name": "FSD-5 扶手垫-透气孔 【黑色】1PCS", "rev": 0.61, "cost": 5.8, "fee": 0.0, "gp": -1.9, "gm": -50.0, "dev": "陈碧霞", "s30": 1.0, "s90": 6.0, "n": 1, "l30": -1.9, "l90": -11.4}, {"sku": "FSD24-FEN-1P", "name": "FSD-24 扶手垫（碳纤纹拼色）【粉色】1PC", "rev": 0.41, "cost": 4.5, "fee": 0.0, "gp": -1.88, "gm": -73.0, "dev": "陈碧霞", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -1.88, "l90": -1.88}, {"sku": "hyd-1-A-10D", "name": "hyd-1 户外灯【火焰-10灯珠】", "rev": 0.61, "cost": 4.5, "fee": 0.0, "gp": -0.6, "gm": -17.0, "dev": "罗金相", "s30": 3.0, "s90": 3.0, "n": 2, "l30": -1.8, "l90": -1.8}, {"sku": "GG02-TOU-50P", "name": "GG02 挂钩【透明】50PC", "rev": 0.36, "cost": 2.0, "fee": 0.69, "gp": -0.39, "gm": -18.0, "dev": "98", "s30": 4.0, "s90": 6.0, "n": 1, "l30": -1.56, "l90": -2.34}, {"sku": "SJX01-TPC-2M", "name": "SJX01 数据充电线【TPC-2米】", "rev": 0.36, "cost": 3.85, "fee": 0.0, "gp": -1.55, "gm": -69.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -1.55, "l90": -1.55}, {"sku": "LJT-A8-HEI", "name": "LJT-A8 车载垃圾桶【黑色】", "rev": 0.48, "cost": 4.5, "fee": 0.0, "gp": -1.43, "gm": -48.0, "dev": "孙艳招", "s30": 1.0, "s90": 2.0, "n": 1, "l30": -1.43, "l90": -2.86}, {"sku": "86001208", "name": "FSD-4【粗绳】夜光防水袋【粉色】", "rev": 0.24, "cost": 2.0, "fee": 0.0, "gp": -0.46, "gm": -32.0, "dev": "98", "s30": 3.0, "s90": 3.0, "n": 1, "l30": -1.38, "l90": -1.38}, {"sku": "CWD01-HL", "name": "CWD01-骑行车灯【红蓝光】", "rev": 0.4, "cost": 3.25, "fee": 0.0, "gp": -0.69, "gm": -29.0, "dev": "孙艳招", "s30": 2.0, "s90": 7.0, "n": 2, "l30": -1.38, "l90": -4.83}, {"sku": "86003492", "name": "FXPT-Z2 方向盘套-（菱形）钻【红色】1pc", "rev": 0.51, "cost": 4.6, "fee": 0.0, "gp": -1.34, "gm": -42.0, "dev": "陈碧霞", "s30": 1.0, "s90": 5.0, "n": 1, "l30": -1.34, "l90": -6.7}, {"sku": "YJJ2-MI-1P", "name": "YJJ-2 汽车眼镜夹-双夹【米色】1PC", "rev": 0.63, "cost": 5.3, "fee": 0.0, "gp": -1.27, "gm": -33.0, "dev": "陈碧霞", "s30": 1.0, "s90": 2.0, "n": 1, "l30": -1.27, "l90": -2.54}, {"sku": "TJD01-70mm-HUA", "name": "TJD01 台阶垫【高-7CM】黄色", "rev": 1.0, "cost": 5.5, "fee": 1.1, "gp": -0.2, "gm": -5.0, "dev": "孙艳招", "s30": 5.0, "s90": 6.0, "n": 2, "l30": -1.0, "l90": -1.2}, {"sku": "BJB01-D", "name": "BJB01 背景布【L5-D】", "rev": 1.1, "cost": 6.55, "fee": 0.92, "gp": -0.43, "gm": -8.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 2, "l30": -0.86, "l90": -0.86}, {"sku": "MZ-L26-BAI", "name": "MZ-L26 壁灯【白色】", "rev": 2.41, "cost": 15.0, "fee": 0.83, "gp": -0.41, "gm": -4.0, "dev": "罗金相", "s30": 2.0, "s90": 2.0, "n": 1, "l30": -0.82, "l90": -0.82}, {"sku": "86001128", "name": "HMG-1 后视镜刮雨器-海绵款【粉色】", "rev": 0.31, "cost": 2.7, "fee": 0.0, "gp": -0.72, "gm": -38.0, "dev": "98", "s30": 1.0, "s90": 2.0, "n": 1, "l30": -0.72, "l90": -1.44}, {"sku": "ZHZJ01-FEN", "name": "ZHZJ01 指环手机架【粉色】", "rev": 0.2, "cost": 1.6, "fee": 0.0, "gp": -0.32, "gm": -27.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 1, "l30": -0.64, "l90": -0.64}, {"sku": "LT02-SLV-2P", "name": "LT02 仿真藤条【深绿】2PC", "rev": 0.19, "cost": 1.3, "fee": 0.47, "gp": -0.55, "gm": -47.0, "dev": "孙艳招", "s30": 1.0, "s90": 7.0, "n": 1, "l30": -0.55, "l90": -3.85}, {"sku": "86000643", "name": "QJB-01 清洁笔 盒装【黑色】", "rev": 0.12, "cost": 0.95, "fee": 0.0, "gp": -0.18, "gm": -25.0, "dev": "98", "s30": 3.0, "s90": 10.0, "n": 1, "l30": -0.54, "l90": -1.8}, {"sku": "SND02-LV", "name": "SND02 自封收纳袋【磨砂绿】7PC", "rev": 0.28, "cost": 2.24, "fee": 0.0, "gp": -0.45, "gm": -27.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 1, "l30": -0.45, "l90": -0.45}, {"sku": "86002075", "name": "GW0282 固线器【黑色】1pc", "rev": 0.12, "cost": 1.1, "fee": 0.0, "gp": -0.33, "gm": -45.0, "dev": "98", "s30": 1.0, "s90": 5.0, "n": 1, "l30": -0.33, "l90": -1.65}, {"sku": "ST006-NAN-LAN", "name": "ST006 骑行手套【男款-蓝色】", "rev": 0.76, "cost": 5.0, "fee": 0.0, "gp": -0.14, "gm": -4.0, "dev": "孙艳招", "s30": 2.0, "s90": 4.0, "n": 1, "l30": -0.28, "l90": -0.56}, {"sku": "ST006-NAN-HUI", "name": "ST006 骑行手套【男款-灰色】", "rev": 0.76, "cost": 5.0, "fee": 0.0, "gp": -0.14, "gm": -4.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 2, "l30": -0.14, "l90": -0.14}, {"sku": "ZWJ03-ZON", "name": "ZWJ03 汽车置物架【棕色】", "rev": 1.72, "cost": 7.5, "fee": 1.3, "gp": 2.21, "gm": 18.0, "dev": "尹琼", "s30": 0.0, "s90": 6.0, "n": 2, "l30": 0.0, "l90": 13.26}, {"sku": "ZJSN-4-MI", "name": "ZJSN-4 汽车纸巾盒【米色】", "rev": 0.78, "cost": 4.6, "fee": 0.3, "gp": 0.09, "gm": 0.0, "dev": "孙艳招", "s30": 0.0, "s90": 3.0, "n": 1, "l30": 0.0, "l90": 0.27}, {"sku": "YK01-ZI", "name": "YK01 汽车腰靠【紫色】", "rev": 2.68, "cost": 17.9, "fee": 0.0, "gp": -0.75, "gm": -6.0, "dev": "孙艳招", "s30": 0.0, "s90": 4.0, "n": 1, "l30": -0.0, "l90": -3.0}, {"sku": "YI01-LV-4XL-A", "name": "YI01 电动雨衣-无镜【果绿-4XL】", "rev": 5.35, "cost": 29.9, "fee": 0.0, "gp": 4.34, "gm": 11.0, "dev": "孙艳招", "s30": 0.0, "s90": 1.0, "n": 1, "l30": 0.0, "l90": 4.34}, {"sku": "XYD09-FEN-3P", "name": "XYD09 小夜灯-玫瑰【粉色-3朵】", "rev": 2.33, "cost": 24.0, "fee": 0.0, "gp": -9.09, "gm": -63.0, "dev": "罗金相", "s30": 0.0, "s90": 0.0, "n": 1, "l30": -0.0, "l90": -0.0}, {"sku": "TJ-101-HEI", "name": "TJ-101 电动磨刀器【黑色】", "rev": 2.08, "cost": 21.67, "fee": 0.0, "gp": -8.36, "gm": -64.0, "dev": "尹琼", "s30": 0.0, "s90": 0.0, "n": 1, "l30": -0.0, "l90": -0.0}, {"sku": "QYS03-HEI-L", "name": "QYS03 牵引绳【黑色-L】", "rev": 0.65, "cost": 3.5, "fee": 0.01, "gp": 0.65, "gm": 14.0, "dev": "孙艳招", "s30": 0.0, "s90": 1.0, "n": 1, "l30": 0.0, "l90": 0.65}, {"sku": "PB19-JP-A678-11-SLV", "name": "PB19-JP 翻盖皮套+键盘Air 6/7/8【11寸】深绿", "rev": 3.4, "cost": 35.88, "fee": 0.0, "gp": -14.12, "gm": -66.0, "dev": "超级管理员", "s30": 0.0, "s90": 0.0, "n": 1, "l30": -0.0, "l90": -0.0}, {"sku": "MWD03-CD-HUI", "name": "MWD03 灭蚊灯【充电-灰色】", "rev": 2.68, "cost": 16.0, "fee": 0.0, "gp": 1.15, "gm": 5.0, "dev": "孙艳招", "s30": 0.0, "s90": 1.0, "n": 1, "l30": 0.0, "l90": 1.15}, {"sku": "MWD02-HUI-CD", "name": "MWD02 灭蚊灯-水母【充电-灰】", "rev": 0.91, "cost": 11.5, "fee": 0.81, "gp": -6.49, "gm": -113.0, "dev": "孙艳招", "s30": 0.0, "s90": 7.0, "n": 4, "l30": -0.0, "l90": -45.43}, {"sku": "HSF03-MLV-XL", "name": "HSF03 护士服短袖【墨绿色-XL】", "rev": 3.72, "cost": 40.3, "fee": 0.42, "gp": -16.91, "gm": -73.0, "dev": "许敏璇", "s30": 0.0, "s90": 0.0, "n": 1, "l30": -0.0, "l90": -0.0}, {"sku": "FSH01-NYO", "name": "FSH01 防水盒-360度【奶黄色】", "rev": 2.27, "cost": 11.9, "fee": 0.0, "gp": 2.63, "gm": 17.0, "dev": "尹琼", "s30": 0.0, "s90": 1.0, "n": 1, "l30": 0.0, "l90": 2.63}, {"sku": "D10-4-HEI", "name": "D10-4 激光尺", "rev": 1.12, "cost": 13.2, "fee": 0.5, "gp": -6.53, "gm": -93.0, "dev": "尹琼", "s30": 0.0, "s90": 1.0, "n": 1, "l30": -0.0, "l90": -6.53}, {"sku": "ZWJ04-40CM-TOU-M", "name": "ZWJ04 置物架【40CM透白-M】毛巾架", "rev": 3.68, "cost": 16.5, "fee": 2.12, "gp": 4.93, "gm": 19.0, "dev": "尹琼", "s30": 0.0, "s90": 4.0, "n": 2, "l30": 0.0, "l90": 19.72}, {"sku": "ST003-C-HEI-M", "name": "ST003 骑行手套【黑色-白字】M", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 0.0, "s90": 5.0, "n": 2, "l30": 0.0, "l90": 24.0}, {"sku": "86000644", "name": "QJB-1 清洁笔 盒装【白色】", "rev": 0.12, "cost": 0.95, "fee": 0.0, "gp": -0.18, "gm": -25.0, "dev": "98", "s30": 0.0, "s90": 2.0, "n": 1, "l30": -0.0, "l90": -0.36}, {"sku": "CCS01-HUA", "name": "CCS01 除尘刷【黄色】", "rev": 0.18, "cost": 1.1, "fee": 0.0, "gp": 0.05, "gm": 3.0, "dev": "孙艳招", "s30": 3.0, "s90": 6.0, "n": 1, "l30": 0.15, "l90": 0.3}, {"sku": "SC5-HEI-S", "name": "SC5 雨靴【黑色-S】", "rev": 1.35, "cost": 7.9, "fee": 0.3, "gp": 0.44, "gm": 4.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 0.44, "l90": 0.44}, {"sku": "MWD03-CD-LV", "name": "MWD03 灭蚊灯【充电-绿色】", "rev": 2.68, "cost": 16.0, "fee": 1.0, "gp": 0.15, "gm": -1.0, "dev": "孙艳招", "s30": 4.0, "s90": 4.0, "n": 2, "l30": 0.6, "l90": 0.6}, {"sku": "ZJSN-4-FEN", "name": "ZJSN-4 汽车纸巾盒【粉色】", "rev": 0.78, "cost": 4.6, "fee": 0.0, "gp": 0.39, "gm": 6.0, "dev": "孙艳招", "s30": 2.0, "s90": 4.0, "n": 3, "l30": 0.78, "l90": 1.56}, {"sku": "LJT-A3-BAI", "name": "LJT-A2 车载垃圾桶【白色】", "rev": 0.77, "cost": 3.1, "fee": 0.91, "gp": 0.92, "gm": 17.0, "dev": "孙艳招", "s30": 1.0, "s90": 6.0, "n": 6, "l30": 0.92, "l90": 5.52}, {"sku": "SJX05-2M-HEI", "name": "SJX05 数据充电线双TP【2米-黑色】", "rev": 0.93, "cost": 4.7, "fee": 0.32, "gp": 0.93, "gm": 14.0, "dev": "孙艳招", "s30": 1.0, "s90": 6.0, "n": 3, "l30": 0.93, "l90": 5.58}, {"sku": "SQ01-HUN-4P", "name": "SQ01 喷水枪【随机色】4PC", "rev": 0.92, "cost": 5.0, "fee": 0.8, "gp": 0.09, "gm": 0.0, "dev": "孙艳招", "s30": 13.0, "s90": 19.0, "n": 4, "l30": 1.17, "l90": 1.71}, {"sku": "QYS03-HEI-XL", "name": "QYS03 牵引绳【黑色-XL】", "rev": 0.65, "cost": 3.5, "fee": 0.01, "gp": 0.65, "gm": 14.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 2, "l30": 1.3, "l90": 1.3}, {"sku": "BJB01-C", "name": "BJB01 背景布【L1-C】", "rev": 1.18, "cost": 6.9, "fee": 0.0, "gp": 0.65, "gm": 7.0, "dev": "孙艳招", "s30": 2.0, "s90": 3.0, "n": 1, "l30": 1.3, "l90": 1.95}, {"sku": "BXH02-HUI-3P", "name": "BXH02 保鲜盒【灰色-三件套】", "rev": 1.72, "cost": 8.5, "fee": 2.02, "gp": 0.49, "gm": 3.0, "dev": "孙艳招", "s30": 3.0, "s90": 3.0, "n": 3, "l30": 1.47, "l90": 1.47}, {"sku": "86000763", "name": "HUB-KG2 4口HUB 独立开关款", "rev": 1.87, "cost": 10.26, "fee": 0.0, "gp": 1.71, "gm": 13.0, "dev": "98", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 1.71, "l90": 1.71}, {"sku": "HFBJ01-MG-HON", "name": "HFBJ01 华夫饼机【美规-红色】", "rev": 3.57, "cost": 18.5, "fee": 2.5, "gp": 1.85, "gm": 7.0, "dev": "罗金相", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 1.85, "l90": 1.85}, {"sku": "GG06-YIN-10P", "name": "GG06 挂钩【银色】10PC", "rev": 0.63, "cost": 3.5, "fee": 0.18, "gp": 0.35, "gm": 7.0, "dev": "98", "s30": 6.0, "s90": 6.0, "n": 4, "l30": 2.1, "l90": 2.1}, {"sku": "BJD01-HUA", "name": "BJD01 保洁袋【黄色】", "rev": 1.75, "cost": 8.0, "fee": 2.5, "gp": 0.7, "gm": 5.0, "dev": "孙艳招", "s30": 3.0, "s90": 3.0, "n": 1, "l30": 2.1, "l90": 2.1}, {"sku": "PT01-BB", "name": "PT01 拼图【小号-百变】", "rev": 0.84, "cost": 3.0, "fee": 1.33, "gp": 1.05, "gm": 18.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 1, "l30": 2.1, "l90": 2.1}, {"sku": "DX02-HUI-XL", "name": "DX02 短袖上衣【灰色】XL", "rev": 1.71, "cost": 8.0, "fee": 0.83, "gp": 2.11, "gm": 18.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 2.11, "l90": 2.11}, {"sku": "DX02-HUI-2XL", "name": "DX02 短袖上衣【灰色】2XL", "rev": 1.71, "cost": 8.0, "fee": 0.83, "gp": 2.11, "gm": 18.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 2.11, "l90": 2.11}, {"sku": "86004956", "name": "FSD-6 扶手垫-菱格皇冠【粉色】1PC", "rev": 1.68, "cost": 8.5, "fee": 0.0, "gp": 2.25, "gm": 19.0, "dev": "陈碧霞", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 2.25, "l90": 2.25}, {"sku": "86004955", "name": "FSD-6 扶手垫-菱格皇冠【黑色】1PC", "rev": 1.68, "cost": 8.5, "fee": 0.0, "gp": 2.25, "gm": 19.0, "dev": "陈碧霞", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 2.25, "l90": 2.25}, {"sku": "ZP01-LAN-7P", "name": "ZP01 派对盘套装【蓝色-7件套】", "rev": 5.0, "cost": 27.52, "fee": 2.17, "gp": 2.31, "gm": 6.0, "dev": "尹琼", "s30": 1.0, "s90": 1.0, "n": 2, "l30": 2.31, "l90": 2.31}, {"sku": "HP09-MM", "name": "HP09 花盆【猫咪-吊脚】", "rev": 2.16, "cost": 10.0, "fee": 1.5, "gp": 2.32, "gm": 15.0, "dev": "孙艳招", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 2.32, "l90": 2.32}, {"sku": "TZ03-KAF", "name": "TZ03 汽车头枕【咖啡】", "rev": 1.38, "cost": 5.5, "fee": 2.55, "gp": 0.78, "gm": 7.0, "dev": "孙艳招", "s30": 3.0, "s90": 9.0, "n": 4, "l30": 2.34, "l90": 7.02}, {"sku": "SC5-HEI-XL", "name": "SC5 雨靴【黑色-XL】", "rev": 1.35, "cost": 7.9, "fee": 0.35, "gp": 0.39, "gm": 3.0, "dev": "孙艳招", "s30": 6.0, "s90": 6.0, "n": 2, "l30": 2.34, "l90": 2.34}, {"sku": "SC5-HEI-M", "name": "SC5 雨靴【黑色-M】", "rev": 1.35, "cost": 7.9, "fee": 0.3, "gp": 0.44, "gm": 4.0, "dev": "孙艳招", "s30": 6.0, "s90": 6.0, "n": 2, "l30": 2.64, "l90": 2.64}, {"sku": "JZQ01-DZ", "name": "JZQ01 减震器", "rev": 2.02, "cost": 10.5, "fee": 1.11, "gp": 1.32, "gm": 9.0, "dev": "尹琼", "s30": 2.0, "s90": 6.0, "n": 4, "l30": 2.64, "l90": 7.92}, {"sku": "QYS03-HEI-M", "name": "QYS03 牵引绳【黑色-M】", "rev": 0.65, "cost": 3.5, "fee": 0.1, "gp": 0.56, "gm": 12.0, "dev": "孙艳招", "s30": 5.0, "s90": 6.0, "n": 3, "l30": 2.8, "l90": 3.36}, {"sku": "QYS03-HEI-S", "name": "QYS03 牵引绳【黑色-S】", "rev": 0.68, "cost": 3.5, "fee": 0.1, "gp": 0.75, "gm": 16.0, "dev": "孙艳招", "s30": 4.0, "s90": 5.0, "n": 2, "l30": 3.0, "l90": 3.75}, {"sku": "MKB02-HUN-36P", "name": "MKB02 马克笔-紫盒36色", "rev": 3.38, "cost": 20.1, "fee": 0.0, "gp": 1.53, "gm": 6.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 1, "l30": 3.06, "l90": 3.06}, {"sku": "JC01-10M", "name": "JC01 卷尺", "rev": 2.57, "cost": 10.8, "fee": 2.5, "gp": 3.15, "gm": 18.0, "dev": "罗金相", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 3.15, "l90": 3.15}, {"sku": "ZDY01-S-1P", "name": "ZDY01 折叠椅【小号】1PC", "rev": 0.93, "cost": 4.48, "fee": 0.41, "gp": 1.06, "gm": 16.0, "dev": "孙艳招", "s30": 3.0, "s90": 12.0, "n": 3, "l30": 3.18, "l90": 12.72}, {"sku": "HT02-HUC", "name": "HT02 电焊面罩-【真彩+头灯】", "rev": 2.7, "cost": 14.15, "fee": 1.51, "gp": 1.62, "gm": 8.0, "dev": "尹琼", "s30": 2.0, "s90": 45.0, "n": 5, "l30": 3.24, "l90": 72.9}, {"sku": "BJB01-A", "name": "BJB01 背景布【L7-A】", "rev": 1.18, "cost": 6.9, "fee": 0.0, "gp": 0.65, "gm": 7.0, "dev": "孙艳招", "s30": 5.0, "s90": 6.0, "n": 1, "l30": 3.25, "l90": 3.9}, {"sku": "FCZ01-XL", "name": "FCZ01 防尘车罩【XL码】", "rev": 0.88, "cost": 4.05, "fee": 0.63, "gp": 0.95, "gm": 15.0, "dev": "孙艳招", "s30": 4.0, "s90": 4.0, "n": 2, "l30": 3.8, "l90": 3.8}, {"sku": "PB03-Y-A678-11-SLV", "name": "PB03-Y TPU【Y折】Air 6/7/8【11寸】深绿", "rev": 3.08, "cost": 15.88, "fee": 0.0, "gp": 3.83, "gm": 18.0, "dev": "超级管理员", "s30": 1.0, "s90": 5.0, "n": 4, "l30": 3.83, "l90": 19.15}, {"sku": "86000991", "name": "SJX-7 理线器-3插槽【白色】1PC", "rev": 0.19, "cost": 1.0, "fee": 0.0, "gp": 0.22, "gm": 16.0, "dev": "98", "s30": 18.0, "s90": 33.0, "n": 5, "l30": 3.96, "l90": 7.26}, {"sku": "86005220", "name": "XJ102 补光灯 黑色 【800mAH】", "rev": 2.98, "cost": 15.0, "fee": 0.0, "gp": 4.07, "gm": 20.0, "dev": "98", "s30": 1.0, "s90": 15.0, "n": 4, "l30": 4.07, "l90": 61.05}, {"sku": "HY-DLJD-A-60CM-50P", "name": "HY-DLJD 垃圾袋-普【60*80平口】50PC", "rev": 1.54, "cost": 7.0, "fee": 0.77, "gp": 2.09, "gm": 20.0, "dev": "孙艳招", "s30": 2.0, "s90": 8.0, "n": 2, "l30": 4.18, "l90": 16.72}, {"sku": "YD03-CAD-A", "name": "YD03 小夜灯【插电-A-带钟】", "rev": 3.95, "cost": 19.9, "fee": 1.17, "gp": 4.21, "gm": 15.0, "dev": "罗金相", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 4.21, "l90": 4.21}, {"sku": "DX02-HUI-L", "name": "DX02 短袖上衣【灰色】L", "rev": 1.71, "cost": 8.0, "fee": 0.83, "gp": 2.11, "gm": 18.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 1, "l30": 4.22, "l90": 4.22}, {"sku": "TYD02-XK-BAI", "name": "TYD02 投影灯【星空-白色】", "rev": 1.73, "cost": 8.99, "fee": 0.92, "gp": 1.16, "gm": 9.0, "dev": "罗金相", "s30": 4.0, "s90": 5.0, "n": 4, "l30": 4.64, "l90": 5.8}, {"sku": "ST003-C-HEI-L", "name": "ST003 骑行手套【黑色-白字】L", "rev": 4.5, "cost": 24.0, "fee": 0.05, "gp": 4.75, "gm": 15.0, "dev": "孙艳招", "s30": 1.0, "s90": 6.0, "n": 2, "l30": 4.75, "l90": 28.5}, {"sku": "ST003-A-HON-M", "name": "ST003 骑行手套【红色-黑字】M", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 1.0, "s90": 4.0, "n": 3, "l30": 4.8, "l90": 19.2}, {"sku": "TD04-3C-US2", "name": "TD04 台灯【美规3插位】", "rev": 4.7, "cost": 23.8, "fee": 1.25, "gp": 5.03, "gm": 15.0, "dev": "罗金相", "s30": 1.0, "s90": 1.0, "n": 1, "l30": 5.03, "l90": 5.03}, {"sku": "GJQ876-MI-1P", "name": "GJQ876 鞋架【奶白色】1PC", "rev": 1.2, "cost": 6.6, "fee": 0.0, "gp": 1.08, "gm": 13.0, "dev": "尹琼", "s30": 5.0, "s90": 10.0, "n": 2, "l30": 5.4, "l90": 10.8}, {"sku": "WJH02-HON", "name": "WJH02 文具盒-芝士【红色】", "rev": 1.34, "cost": 6.37, "fee": 0.4, "gp": 1.81, "gm": 19.0, "dev": "尹琼", "s30": 3.0, "s90": 22.0, "n": 1, "l30": 5.43, "l90": 39.82}, {"sku": "ZD04-FEN", "name": "ZD04 坐垫【粉色】", "rev": 2.2, "cost": 9.3, "fee": 2.03, "gp": 2.75, "gm": 18.0, "dev": "孙艳招", "s30": 2.0, "s90": 23.0, "n": 4, "l30": 5.5, "l90": 63.25}, {"sku": "MJ1-B", "name": "MJ1 面具【红桃骷髅-B】", "rev": 0.94, "cost": 4.32, "fee": 0.56, "gp": 1.14, "gm": 17.0, "dev": "孙艳招", "s30": 5.0, "s90": 6.0, "n": 3, "l30": 5.7, "l90": 6.84}, {"sku": "GG04-HUN-50P", "name": "GG04 挂钩【混色】50PC", "rev": 0.77, "cost": 4.0, "fee": 0.21, "gp": 0.72, "gm": 13.0, "dev": "98", "s30": 8.0, "s90": 9.0, "n": 5, "l30": 5.76, "l90": 6.48}, {"sku": "BJB01-B", "name": "BJB01 背景布【L36-B】", "rev": 1.18, "cost": 6.9, "fee": 0.01, "gp": 0.64, "gm": 7.0, "dev": "孙艳招", "s30": 9.0, "s90": 15.0, "n": 2, "l30": 5.76, "l90": 9.6}, {"sku": "HP09-XX", "name": "HP09 花盆【小熊-吊脚】", "rev": 2.16, "cost": 10.0, "fee": 0.89, "gp": 2.93, "gm": 20.0, "dev": "孙艳招", "s30": 2.0, "s90": 2.0, "n": 1, "l30": 5.86, "l90": 5.86}, {"sku": "1861-BAI", "name": "1861 海绵架【白色】", "rev": 1.66, "cost": 8.6, "fee": 0.01, "gp": 2.01, "gm": 17.0, "dev": "罗金相", "s30": 3.0, "s90": 3.0, "n": 1, "l30": 6.03, "l90": 6.03}, {"sku": "ST005-ZON-XL", "name": "ST005 骑行手套【棕色-XL】", "rev": 1.88, "cost": 9.3, "fee": 0.6, "gp": 2.13, "gm": 16.0, "dev": "孙艳招", "s30": 4.0, "s90": 13.0, "n": 5, "l30": 8.52, "l90": 27.69}, {"sku": "YI01-LV-5XL-B", "name": "YI01 电动雨衣-带镜【果绿-5XL】", "rev": 5.35, "cost": 29.9, "fee": 0.0, "gp": 4.34, "gm": 11.0, "dev": "孙艳招", "s30": 2.0, "s90": 5.0, "n": 3, "l30": 8.68, "l90": 21.7}, {"sku": "ST08-HEI-M", "name": "ST08 骑行手套【黑色-M】", "rev": 3.75, "cost": 19.5, "fee": 0.0, "gp": 4.5, "gm": 17.0, "dev": "孙艳招", "s30": 2.0, "s90": 5.0, "n": 4, "l30": 9.0, "l90": 22.5}, {"sku": "QJB01-TH", "name": "QJB01 七巧板【铁盒】", "rev": 2.39, "cost": 11.2, "fee": 0.92, "gp": 3.18, "gm": 19.0, "dev": "孙艳招", "s30": 3.0, "s90": 3.0, "n": 2, "l30": 9.54, "l90": 9.54}, {"sku": "86005234", "name": "FTD4 车载防踢袋-牛津【黑色 网兜款】1pc", "rev": 1.28, "cost": 6.6, "fee": 0.0, "gp": 1.59, "gm": 18.0, "dev": "陈碧霞", "s30": 7.0, "s90": 11.0, "n": 3, "l30": 11.13, "l90": 17.49}, {"sku": "G800-HUI", "name": "G800 户外灯【灰色】", "rev": 4.88, "cost": 26.0, "fee": 0.8, "gp": 4.43, "gm": 13.0, "dev": "尹琼", "s30": 3.0, "s90": 7.0, "n": 2, "l30": 13.29, "l90": 31.01}, {"sku": "WJH02-LAN", "name": "WJH02 文具盒-海盐【蓝色】", "rev": 1.34, "cost": 6.7, "fee": 0.4, "gp": 1.48, "gm": 16.0, "dev": "尹琼", "s30": 9.0, "s90": 23.0, "n": 3, "l30": 13.32, "l90": 34.04}, {"sku": "ZWJ05-HEI-L", "name": "ZWJ05 置物架【黑色-L】双钩粘片", "rev": 0.8, "cost": 3.5, "fee": 1.05, "gp": 0.57, "gm": 10.0, "dev": "尹琼", "s30": 24.0, "s90": 45.0, "n": 4, "l30": 13.68, "l90": 25.65}, {"sku": "ST003-B-HEI-M", "name": "ST003 骑行手套【黑色-黑字】M", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 3.0, "s90": 11.0, "n": 3, "l30": 14.4, "l90": 52.8}, {"sku": "ST003-A-HON-XL", "name": "ST003 骑行手套【红色-黑字】XL", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 3.0, "s90": 10.0, "n": 2, "l30": 14.4, "l90": 48.0}, {"sku": "ST005-ZON-2XL", "name": "ST005 骑行手套【棕色-XXL】", "rev": 1.88, "cost": 9.3, "fee": 0.3, "gp": 2.43, "gm": 19.0, "dev": "孙艳招", "s30": 6.0, "s90": 17.0, "n": 5, "l30": 14.58, "l90": 41.31}, {"sku": "ZWJ05-BAI-L", "name": "ZWJ05 置物架【白色-L】双钩粘片", "rev": 0.8, "cost": 3.3, "fee": 0.78, "gp": 1.04, "gm": 19.0, "dev": "尹琼", "s30": 16.0, "s90": 29.0, "n": 5, "l30": 16.64, "l90": 30.16}, {"sku": "CD004-HG", "name": "CD004 骑行车灯【红光】", "rev": 2.46, "cost": 12.0, "fee": 0.9, "gp": 2.84, "gm": 17.0, "dev": "孙艳招", "s30": 6.0, "s90": 10.0, "n": 3, "l30": 17.04, "l90": 28.4}, {"sku": "ST003-B-HEI-XL", "name": "ST003 骑行手套【黑色-黑字】XL", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 4.0, "s90": 10.0, "n": 3, "l30": 19.2, "l90": 48.0}, {"sku": "ST003-C-HEI-XL", "name": "ST003 骑行手套【黑色-白字】XL", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 4.0, "s90": 13.0, "n": 3, "l30": 19.2, "l90": 62.4}, {"sku": "XYD03-E-800A", "name": "XYD03 小夜灯【橙色-E】800mAh", "rev": 3.88, "cost": 18.5, "fee": 2.0, "gp": 4.33, "gm": 16.0, "dev": "孙艳招", "s30": 5.0, "s90": 11.0, "n": 4, "l30": 21.65, "l90": 47.63}, {"sku": "JP01-HEI", "name": "JP01 鼠键套装【黑色】", "rev": 3.59, "cost": 18.0, "fee": 0.58, "gp": 4.4, "gm": 18.0, "dev": "98", "s30": 5.0, "s90": 37.0, "n": 6, "l30": 22.0, "l90": 162.8}, {"sku": "PB03-Y-IP1011-109-SLV", "name": "PB03-Y TPU【Y折】iPad 10/11 A16【10.9寸】深绿", "rev": 3.08, "cost": 15.88, "fee": 0.0, "gp": 3.83, "gm": 18.0, "dev": "超级管理员", "s30": 6.0, "s90": 7.0, "n": 2, "l30": 22.98, "l90": 26.81}, {"sku": "TDZ01-HEI", "name": "TDZ01 头戴手机支架【黑色-弹簧款】", "rev": 0.98, "cost": 4.4, "fee": 0.56, "gp": 1.31, "gm": 19.0, "dev": "罗加方", "s30": 18.0, "s90": 24.0, "n": 3, "l30": 23.58, "l90": 31.44}, {"sku": "FWZ01-HEI-1P", "name": "FWZ01 防雾罩【黑色】1PC", "rev": 3.5, "cost": 19.0, "fee": 0.0, "gp": 3.4, "gm": 14.0, "dev": "尹琼", "s30": 7.0, "s90": 18.0, "n": 6, "l30": 23.8, "l90": 61.2}, {"sku": "ST003-A-HON-L", "name": "ST003 骑行手套【红色-黑字】L", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 5.0, "s90": 14.0, "n": 2, "l30": 24.0, "l90": 67.2}, {"sku": "HJ02-30CM", "name": "HJ02 花架【30CM】", "rev": 2.07, "cost": 8.95, "fee": 2.11, "gp": 2.19, "gm": 15.0, "dev": "罗金相", "s30": 11.0, "s90": 12.0, "n": 3, "l30": 24.09, "l90": 26.28}, {"sku": "ST005-LV-2XL", "name": "ST005 骑行手套【绿色-XXL】", "rev": 1.88, "cost": 9.0, "fee": 0.44, "gp": 2.59, "gm": 20.0, "dev": "孙艳招", "s30": 10.0, "s90": 24.0, "n": 5, "l30": 25.9, "l90": 62.16}, {"sku": "ST005-ZON-L", "name": "ST005 骑行手套【棕色-L】", "rev": 1.88, "cost": 9.3, "fee": 0.51, "gp": 2.22, "gm": 17.0, "dev": "孙艳招", "s30": 12.0, "s90": 27.0, "n": 4, "l30": 26.64, "l90": 59.94}, {"sku": "TD02-HUA", "name": "TD02 充电眼镜LED灯【黄色镜框】", "rev": 5.0, "cost": 26.0, "fee": 1.54, "gp": 4.46, "gm": 12.0, "dev": "罗加方", "s30": 6.0, "s90": 6.0, "n": 3, "l30": 26.76, "l90": 26.76}, {"sku": "CD005-HG-2P", "name": "CD005 骑行车灯-【红光】2PC", "rev": 4.81, "cost": 25.0, "fee": 0.95, "gp": 4.83, "gm": 14.0, "dev": "孙艳招", "s30": 7.0, "s90": 15.0, "n": 4, "l30": 33.81, "l90": 72.45}, {"sku": "JP01-BAI", "name": "JP01 鼠键套装【白色】", "rev": 3.59, "cost": 18.0, "fee": 0.61, "gp": 4.37, "gm": 17.0, "dev": "98", "s30": 8.0, "s90": 26.0, "n": 5, "l30": 34.96, "l90": 113.62}, {"sku": "ZD04-HEI", "name": "ZD04 坐垫【黑色】", "rev": 2.2, "cost": 9.3, "fee": 2.02, "gp": 2.76, "gm": 18.0, "dev": "孙艳招", "s30": 13.0, "s90": 42.0, "n": 5, "l30": 35.88, "l90": 115.92}, {"sku": "ZDY01-L-1P", "name": "ZDY01 折叠椅【大号】1PC", "rev": 1.11, "cost": 4.93, "fee": 0.67, "gp": 1.5, "gm": 20.0, "dev": "孙艳招", "s30": 24.0, "s90": 37.0, "n": 5, "l30": 36.0, "l90": 55.5}, {"sku": "DC11-CX", "name": "DC11 磁吸工作灯", "rev": 3.61, "cost": 18.05, "fee": 0.5, "gp": 4.55, "gm": 18.0, "dev": "尹琼", "s30": 8.0, "s90": 24.0, "n": 6, "l30": 36.4, "l90": 109.2}, {"sku": "ZD04-HUI", "name": "ZD04 坐垫【灰色】", "rev": 2.2, "cost": 9.3, "fee": 2.02, "gp": 2.76, "gm": 18.0, "dev": "孙艳招", "s30": 14.0, "s90": 29.0, "n": 4, "l30": 38.64, "l90": 80.04}, {"sku": "ST08-HEI-XL", "name": "ST08 骑行手套【黑色-XL】", "rev": 3.75, "cost": 19.5, "fee": 0.3, "gp": 4.2, "gm": 16.0, "dev": "孙艳招", "s30": 10.0, "s90": 14.0, "n": 4, "l30": 42.0, "l90": 58.8}, {"sku": "ST003-B-HEI-L", "name": "ST003 骑行手套【黑色-黑字】L", "rev": 4.5, "cost": 24.0, "fee": 0.0, "gp": 4.8, "gm": 15.0, "dev": "孙艳招", "s30": 9.0, "s90": 20.0, "n": 5, "l30": 43.2, "l90": 96.0}, {"sku": "ST005-LV-XL", "name": "ST005 骑行手套【绿色-XL】", "rev": 1.88, "cost": 9.0, "fee": 0.46, "gp": 2.57, "gm": 20.0, "dev": "孙艳招", "s30": 18.0, "s90": 33.0, "n": 5, "l30": 46.26, "l90": 84.81}, {"sku": "CD005-LG-2P", "name": "CD005 骑行车灯-【蓝光】2PC", "rev": 4.81, "cost": 25.0, "fee": 0.9, "gp": 4.88, "gm": 14.0, "dev": "孙艳招", "s30": 10.0, "s90": 28.0, "n": 3, "l30": 48.8, "l90": 136.64}, {"sku": "PB03-Y-IP1011-109-SHL", "name": "PB03-Y TPU【Y折】iPad 10/11 A16【10.9寸】深蓝", "rev": 3.08, "cost": 15.88, "fee": 0.0, "gp": 3.83, "gm": 18.0, "dev": "超级管理员", "s30": 19.0, "s90": 28.0, "n": 2, "l30": 72.77, "l90": 107.24}, {"sku": "ST005-HEI-XL", "name": "ST005 骑行手套【黑色-XL】", "rev": 1.88, "cost": 9.3, "fee": 0.35, "gp": 2.38, "gm": 18.0, "dev": "孙艳招", "s30": 56.0, "s90": 105.0, "n": 5, "l30": 133.28, "l90": 249.9}, {"sku": "LSS01-FAN-HEI-4M", "name": "LSS01 晾晒绳-方形【黑-4.8米】", "rev": 4.5, "cost": 23.9, "fee": 0.98, "gp": 3.92, "gm": 12.0, "dev": "孙艳招", "s30": 35.0, "s90": 64.0, "n": 4, "l30": 137.2, "l90": 250.88}, {"sku": "MKB02-HUN-84P", "name": "MKB02 马克笔-紫盒84色", "rev": 7.8, "cost": 46.9, "fee": 0.0, "gp": 3.02, "gm": 4.0, "dev": "孙艳招", "s30": 47.0, "s90": 78.0, "n": 5, "l30": 141.94, "l90": 235.56}];</script>
 <script>
-const RED='#e34d59', GREEN='#1a9e5c', BLUE='#2b5fd9', ORANGE='#e37318', GRAY='#8a9099';
+const RED='#e34d59', GREEN='#1a9e5c', BLUE='#2b5fd9', ORANGE='#e37318';
 const GM_BANDS=[
-  {k:'a',label:'≤ -100%',   test:v=>v.gm<=-100},
-  {k:'b',label:'-100% ~ -50%',test:v=>v.gm>-100&&v.gm<=-50},
-  {k:'c',label:'-50% ~ 0%',  test:v=>v.gm>-50&&v.gm<0},
-  {k:'d',label:'0 ~ 15%',    test:v=>v.gm>=0&&v.gm<15},
-  {k:'e',label:'≥ 15%',      test:v=>v.gm>=15}
+  {k:'a',label:'≤ -100%',      test:v=>v.gm<=-100,          c:RED},
+  {k:'b',label:'-100% ~ -50%', test:v=>v.gm>-100&&v.gm<=-50, c:'#ef7a83'},
+  {k:'c',label:'-50% ~ 0%',    test:v=>v.gm>-50&&v.gm<0,     c:ORANGE},
+  {k:'d',label:'0 ~ 15%',      test:v=>v.gm>=0&&v.gm<15,     c:'#8ecfa8'},
+  {k:'e',label:'≥ 15%',        test:v=>v.gm>=15,             c:GREEN}
 ];
 const S30_BANDS=[
   {k:'z',label:'0（无销量）',test:v=>v.s30<=0},
@@ -218,167 +247,280 @@ const S30_BANDS=[
   {k:'m',label:'6 ~ 15',     test:v=>v.s30>5&&v.s30<=15},
   {k:'h',label:'≥ 16',       test:v=>v.s30>15}
 ];
+const PRI=[
+  {k:'P0',label:'P0 紧急（30天亏 ≥100元）',  test:v=>v.l30<=-100},
+  {k:'P1',label:'P1 高（30天亏 30~100元）',  test:v=>v.l30>-100&&v.l30<=-30},
+  {k:'P2',label:'P2 中（单位毛利为负）',     test:v=>v.l30>-30&&v.gp<0},
+  {k:'P3',label:'P3 观察（微利 / 健康）',    test:v=>v.gp>=0}
+];
+const QUICK=[
+  {k:'high',label:'高危（≤-50% 且仍在出单）',test:v=>v.gm<=-50&&v.s30>0},
+  {k:'deep',label:'严重倒挂（≤-100%）',      test:v=>v.gm<=-100},
+  {k:'sell',label:'有销量且亏损',            test:v=>v.s30>0&&v.gp<0},
+  {k:'dead',label:'零销量亏损',              test:v=>v.s30<=0&&v.gp<0},
+  {k:'ok',  label:'健康（毛利率 ≥15%）',     test:v=>v.gm>=15}
+];
+const METRICS=[
+  {k:'l30',  label:'30天毛利额(元)',  bad:'low',  unit:'元', color:v=>v<0?RED:GREEN},
+  {k:'l90',  label:'90天毛利额(元)',  bad:'low',  unit:'元', color:v=>v<0?RED:GREEN},
+  {k:'n',    label:'异常 SKU 数',     bad:'high', unit:'个', color:()=>BLUE},
+  {k:'neg',  label:'负毛利 SKU 数',   bad:'high', unit:'个', color:()=>ORANGE},
+  {k:'deep', label:'高危 SKU 数',     bad:'high', unit:'个', color:()=>RED},
+  {k:'s30',  label:'30天销量(件)',    bad:'high', unit:'件', color:()=>BLUE},
+  {k:'avgGm',label:'平均毛利率(%)',   bad:'low',  unit:'%',  color:v=>v<0?RED:GREEN},
+  {k:'upAvg',label:'平均保本需涨(%)', bad:'high', unit:'%',  color:()=>ORANGE}
+];
 const DEVS=[...new Set(DATA.map(d=>d.dev))];
-const state={dev:new Set(),gm:new Set(),s30:new Set(),key:'',sort:'l30',asc:true};
+DATA.forEach(d=>{
+  const inc=d.rev*6.4;
+  d.up = (d.gp<0 && inc>0) ? +(((d.cost+d.fee)/inc-1)*100).toFixed(0) : null;
+  d.pri = PRI.find(p=>p.test(d)).k;
+  d.priN = ['P0','P1','P2','P3'].indexOf(d.pri);
+});
+const state={dev:'',gm:'',s30:'',pri:'',quick:'',metric:'l30',key:'',sort:'l30',asc:true};
 
-/* ---------- 筛选器渲染 ---------- */
-function mkChips(el,items,set){
-  el.innerHTML='';
-  items.forEach(([k,label])=>{
-    const b=document.createElement('div');
-    b.className='chip'; b.textContent=label;
-    b.onclick=()=>{ set.has(k)?set.delete(k):set.add(k); b.classList.toggle('on'); render(); };
-    el.appendChild(b);
-  });
+/* ---------- 下拉筛选 ---------- */
+function fillSel(el,items){
+  el.innerHTML=items.map(([v,l])=>`<option value="${v}">${l}</option>`).join('');
+  el.value=state[el.dataset.s]||'';
+  el.onchange=()=>{ state[el.dataset.s]=el.value; render(); };
 }
-mkChips(document.getElementById('fDev'),DEVS.map(d=>[d,d]),state.dev);
-mkChips(document.getElementById('fGm'),GM_BANDS.map(b=>[b.k,b.label]),state.gm);
-mkChips(document.getElementById('fS30'),S30_BANDS.map(b=>[b.k,b.label]),state.s30);
+const SELS=[
+  ['sDev','dev',  [['','全部开发人'],...DEVS.map(d=>[d,d])]],
+  ['sGm','gm',    [['','全部毛利率'],...GM_BANDS.map(b=>[b.k,b.label])]],
+  ['sS30','s30',  [['','全部销量'],...S30_BANDS.map(b=>[b.k,b.label])]],
+  ['sPri','pri',  [['','全部优先级'],...PRI.map(p=>[p.k,p.label])]],
+  ['sQuick','quick',[['','不限'],...QUICK.map(q=>[q.k,q.label])]],
+  ['sMetric','metric',METRICS.map(m=>[m.k,m.label])]
+];
+SELS.forEach(([id,key,items])=>{
+  const el=document.getElementById(id);
+  el.dataset.s=key;
+  fillSel(el,items);
+});
+function syncSels(){ SELS.forEach(([id,key])=>{ document.getElementById(id).value=state[key]||''; }); }
 document.getElementById('fKey').oninput=e=>{state.key=e.target.value.trim().toLowerCase();render();};
 document.getElementById('btnReset').onclick=()=>{
-  state.dev.clear();state.gm.clear();state.s30.clear();state.key='';
-  document.getElementById('fKey').value='';
-  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
-  render();
+  ['dev','gm','s30','pri','quick'].forEach(k=>state[k]='');
+  state.key=''; document.getElementById('fKey').value='';
+  syncSels(); render();
 };
 
-/* ---------- 核心 ---------- */
+/* ---------- 数据 ---------- */
 function filtered(){
   return DATA.filter(d=>{
-    if(state.dev.size && !state.dev.has(d.dev)) return false;
-    if(state.gm.size){
-      const b=GM_BANDS.find(x=>x.test(d)); if(!b||!state.gm.has(b.k)) return false;
-    }
-    if(state.s30.size){
-      const b=S30_BANDS.find(x=>x.test(d)); if(!b||!state.s30.has(b.k)) return false;
-    }
+    if(state.dev && d.dev!==state.dev) return false;
+    if(state.gm){ const b=GM_BANDS.find(x=>x.test(d)); if(!b||b.k!==state.gm) return false; }
+    if(state.s30){ const b=S30_BANDS.find(x=>x.test(d)); if(!b||b.k!==state.s30) return false; }
+    if(state.pri && d.pri!==state.pri) return false;
+    if(state.quick){ const q=QUICK.find(x=>x.k===state.quick); if(!q||!q.test(d)) return false; }
     if(state.key && !(d.sku.toLowerCase().includes(state.key)||d.name.toLowerCase().includes(state.key))) return false;
     return true;
   });
 }
 function actionOf(d){
-  if(d.gm<=-50 && d.s30>0) return ['立即调价/下架','s'];
+  if(d.gm<=-50 && d.s30>0) return ['立即调价 / 下架','s'];
   if(d.gm<0) return ['核查成本与运费','m'];
   if(d.gm<15) return ['微利 · 持续优化','m'];
   return ['健康 · 保持','g'];
 }
 const charts={};
-function chart(id){
-  if(!charts[id]) charts[id]=echarts.init(document.getElementById(id));
-  return charts[id];
-}
+function chart(id){ if(!charts[id]) charts[id]=echarts.init(document.getElementById(id)); return charts[id]; }
 const fmt=n=>(Math.round(n*100)/100).toLocaleString('zh-CN',{maximumFractionDigits:2});
+const money=n=>(n<0?'-':'+')+fmt(Math.abs(n));
+function devAgg(list){
+  return DEVS.map(dev=>{
+    const g=list.filter(x=>x.dev===dev);
+    if(!g.length) return null;
+    const ups=g.filter(x=>x.up!==null);
+    return {dev,n:g.length,neg:g.filter(x=>x.gp<0).length,
+      deep:g.filter(x=>x.gm<=-50&&x.s30>0).length,
+      l30:+g.reduce((s,x)=>s+x.l30,0).toFixed(2),
+      l90:+g.reduce((s,x)=>s+x.l90,0).toFixed(2),
+      s30:g.reduce((s,x)=>s+x.s30,0),
+      avgGm:+(g.reduce((s,x)=>s+x.gm,0)/g.length).toFixed(1),
+      upAvg:ups.length?+(ups.reduce((s,x)=>s+x.up,0)/ups.length).toFixed(0):0};
+  }).filter(Boolean);
+}
 
 function render(){
   const list=filtered().sort((a,b)=>{
-    const v=state.sort==='name'||state.sort==='sku'||state.sort==='dev'
-      ? String(a[state.sort]).localeCompare(String(b[state.sort]))
-      : a[state.sort]-b[state.sort];
+    const k=state.sort;
+    let v;
+    if(k==='name'||k==='sku'||k==='dev'||k==='act') v=String(a[k]||a.sku).localeCompare(String(b[k]||b.sku));
+    else if(k==='pri') v=a.priN-b.priN;
+    else v=(a[k]===null?-Infinity:a[k])-(b[k]===null?-Infinity:b[k]);
     return state.asc?v:-v;
   });
   document.getElementById('hit').textContent=list.length;
   document.getElementById('total').textContent=DATA.length;
+  const l30all=list.reduce((s,d)=>s+d.l30,0);
+  document.getElementById('hitSum').innerHTML=
+    `30天合计 <b class="${l30all<0?'neg':'pos'}">${money(l30all)} 元</b>　·　高危 ${list.filter(d=>d.gm<=-50&&d.s30>0).length} 个　·　30天销量 ${list.reduce((s,d)=>s+d.s30,0)} 件`;
 
-  /* KPI */
   const neg=list.filter(d=>d.gp<0);
-  const l30=list.reduce((s,d)=>s+d.l30,0);
-  const l90=list.reduce((s,d)=>s+d.l90,0);
+  const l30=list.reduce((s,d)=>s+d.l30,0), l90=list.reduce((s,d)=>s+d.l90,0);
   const worst=list.filter(d=>d.gm<=-50&&d.s30>0).length;
-  const q30=list.reduce((s,d)=>s+d.s30,0);
+  const deep=list.filter(d=>d.gm<=-100).length;
+  const needUp=list.filter(d=>d.up!==null&&d.up<=30).length;
   document.getElementById('kpis').innerHTML=[
     ['SKU 总数',list.length,'占全表 '+fmt(list.length/DATA.length*100)+'%','blue'],
     ['负毛利 SKU',neg.length,neg.length?'占比 '+fmt(neg.length/list.length*100)+'%':'—','red'],
-    ['30天毛利额',(l30<0?'':'+')+fmt(l30)+' 元','按当前销量估算',l30<0?'red':'green'],
-    ['90天毛利额',(l90<0?'':'+')+fmt(l90)+' 元','近三个月累计',l90<0?'red':'green'],
-    ['高危 SKU',worst,'毛利率 ≤ -50% 且有销量','orange'],
-    ['30天总销量',q30+' 件','当前筛选范围','blue']
+    ['30天毛利额',money(l30)+' 元','按当前销量估算',l30<0?'red':'green'],
+    ['90天毛利额',money(l90)+' 元','近三个月累计',l90<0?'red':'green'],
+    ['高危 SKU',worst,'毛利率 ≤ -50% 且仍在出单','orange'],
+    ['严重倒挂',deep,'毛利率 ≤ -100%，卖一单亏一倍','red'],
+    ['涨价可救',needUp,'保本涨幅 ≤ 30% 的 SKU','green']
   ].map(([t,v,s,c])=>`<div class="kpi ${c}"><div class="t">${t}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
 
   /* 直方图 */
-  const hb=GM_BANDS.map(b=>({label:b.label,n:list.filter(b.test).length}));
-  chart('cHist').setOption({
-    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
-    grid:{left:60,right:24,top:34,bottom:44},
+  const hb=GM_BANDS.map(b=>({label:b.label,n:list.filter(b.test).length,c:b.c}));
+  const c1=chart('cHist');
+  c1.setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
+      formatter:p=>`${p[0].name}<br/>SKU 数：${p[0].value}<br/><span style="color:#888">点击筛选该区间</span>`},
+    grid:{left:56,right:24,top:34,bottom:44},
     xAxis:{type:'category',data:hb.map(x=>x.label),axisLabel:{fontSize:12}},
     yAxis:{type:'value',name:'SKU 数',splitLine:{lineStyle:{color:'#eef0f2'}}},
-    series:[{type:'bar',data:hb.map(x=>x.n),barWidth:'52%',
-      itemStyle:{color:p=>[RED,'#ef7a83',ORANGE,'#8ecfa8',GREEN][p.dataIndex],borderRadius:[4,4,0,0]},
+    series:[{type:'bar',data:hb.map(x=>({value:x.n,itemStyle:{color:x.c,borderRadius:[4,4,0,0]}})),barWidth:'52%',
       label:{show:true,position:'top',fontSize:12,color:'#333'}}]
   },true);
+  c1.off('click');
+  c1.on('click',p=>{ const k=GM_BANDS[p.dataIndex].k; state.gm = state.gm===k ? '' : k; syncSels(); render(); });
 
   /* 饼图 */
-  const seg=[
-    {name:'严重亏损 ≤-50%',v:list.filter(d=>d.gm<=-50).length,c:RED},
-    {name:'轻度亏损 -50%~0%',v:list.filter(d=>d.gm>-50&&d.gm<0).length,c:ORANGE},
-    {name:'微利 0~15%',v:list.filter(d=>d.gm>=0&&d.gm<15).length,c:'#8ecfa8'},
-    {name:'健康 ≥15%',v:list.filter(d=>d.gm>=15).length,c:GREEN}
-  ].filter(x=>x.v>0);
-  chart('cPie').setOption({
+  const seg=GM_BANDS.map(b=>({name:b.label,v:list.filter(b.test).length,c:b.c,k:b.k})).filter(x=>x.v>0);
+  const c2=chart('cPie');
+  c2.setOption({
     tooltip:{trigger:'item',formatter:'{b}: {c} 个 ({d}%)'},
-    legend:{bottom:0,itemWidth:11,itemHeight:11,textStyle:{fontSize:12}},
-    series:[{type:'pie',radius:['42%','68%'],center:['50%','44%'],avoidLabelOverlap:true,
+    legend:{bottom:0,itemWidth:11,itemHeight:11,textStyle:{fontSize:11},itemGap:8},
+    series:[{type:'pie',radius:['42%','66%'],center:['50%','40%'],avoidLabelOverlap:true,
       data:seg.map(x=>({name:x.name,value:x.v,itemStyle:{color:x.c}})),
-      label:{formatter:'{c}',fontSize:12,color:'#333'},
-      labelLine:{length:8,length2:8}}]
+      label:{formatter:'{c}',fontSize:12,color:'#333'},labelLine:{length:6,length2:6}}]
+  },true);
+  c2.off('click');
+  c2.on('click',p=>{ const k=seg[p.dataIndex].k; state.gm = state.gm===k ? '' : k; syncSels(); render(); });
+
+  /* 帕累托 */
+  const negs=list.filter(d=>d.l30<0).sort((a,b)=>a.l30-b.l30);
+  const show=negs.slice(0,30);
+  const tot=negs.reduce((s,d)=>s+d.l30,0);
+  let cum=0;
+  const cumArr=show.map(d=>{cum+=d.l30; return tot? +(cum/tot*100).toFixed(1):0;});
+  const cutIdx=cumArr.findIndex(v=>v>=80);
+  chart('cPareto').setOption({
+    tooltip:{trigger:'axis',formatter:p=>{
+      const i=p[0].dataIndex,d=show[i];
+      return `No.${i+1} ${d.name}<br/>SKU：${d.sku}<br/>30天亏损：${fmt(d.l30)} 元<br/>累计占比：${cumArr[i]}%`;}},
+    grid:{left:64,right:56,top:34,bottom:52},
+    xAxis:{type:'category',data:show.map((d,i)=>'No.'+(i+1)),axisLabel:{fontSize:11,interval:0,rotate:show.length>16?45:0}},
+    yAxis:[{type:'value',name:'亏损额(元)',splitLine:{lineStyle:{color:'#eef0f2'}}},
+           {type:'value',name:'累计占比',max:100,axisLabel:{formatter:'{value}%'},splitLine:{show:false}}],
+    series:[
+      {type:'bar',data:show.map(d=>Math.abs(d.l30)),barWidth:'58%',itemStyle:{color:RED,borderRadius:[3,3,0,0]}},
+      {type:'line',yAxisIndex:1,data:cumArr,smooth:true,symbol:'circle',symbolSize:5,
+        itemStyle:{color:BLUE},lineStyle:{width:2},
+        markLine:cutIdx>=0?{silent:true,symbol:'none',lineStyle:{color:ORANGE,type:'dashed'},
+          data:[{xAxis:cutIdx,label:{formatter:'80% ≈ 前 '+(cutIdx+1)+' 个',fontSize:12,color:ORANGE,position:'insideEndTop'}}]}:undefined}
+    ]
   },true);
 
-  /* 开发人 */
-  const dv=DEVS.map(d=>{
-    const g=list.filter(x=>x.dev===d);
-    return {dev:d,n:g.length,loss:g.reduce((s,x)=>s+x.l30,0)};
-  }).filter(x=>x.n>0).sort((a,b)=>a.loss-b.loss);
-  chart('cDev').setOption({
+  /* 成本结构 */
+  const top15=list.filter(d=>d.l30<0).sort((a,b)=>a.l30-b.l30).slice(0,15).reverse();
+  chart('cCost').setOption({
     tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
-      formatter:p=>{const i=p[0].dataIndex;return `${dv[i].dev}<br/>30天毛利额：${fmt(dv[i].loss)} 元<br/>SKU 数：${dv[i].n}`;}},
-    grid:{left:78,right:60,top:34,bottom:30},
+      formatter:p=>{const d=top15[p[0].dataIndex];
+        return `${d.name}<br/>净收入(折算)：${fmt(d.rev*6.4)} 元<br/>采购+费用：${fmt(d.cost+d.fee)} 元<br/>单位毛利：${fmt(d.gp)} 元`;}},
+    legend:{data:['采购+费用(¥)','折算净收入(¥)'],top:0,itemWidth:12,itemHeight:12,textStyle:{fontSize:12}},
+    grid:{left:150,right:30,top:36,bottom:26},
+    xAxis:{type:'value',splitLine:{lineStyle:{color:'#eef0f2'}}},
+    yAxis:{type:'category',data:top15.map(d=>d.name.length>12?d.name.slice(0,12)+'…':d.name),axisLabel:{fontSize:11}},
+    series:[
+      {name:'采购+费用(¥)',type:'bar',data:top15.map(d=>+(d.cost+d.fee).toFixed(2)),
+       itemStyle:{color:'#f3a6ac'},barWidth:'34%',barGap:'12%'},
+      {name:'折算净收入(¥)',type:'bar',data:top15.map(d=>+(d.rev*6.4).toFixed(2)),
+       itemStyle:{color:BLUE,borderRadius:[0,3,3,0]},barWidth:'34%',
+       label:{show:true,position:'right',formatter:p=>{const d=top15[p.dataIndex];return d.gp<0?'亏 '+fmt(Math.abs(d.gp)):'';},fontSize:11,color:RED}}
+    ]
+  },true);
+
+  /* 开发人对比（指标可切换） */
+  const M=METRICS.find(m=>m.k===state.metric);
+  const cmp=devAgg(list).sort((a,b)=>M.bad==='low' ? b[M.k]-a[M.k] : a[M.k]-b[M.k]);
+  const c3=chart('cCmp');
+  c3.setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
+      formatter:p=>{const d=cmp[p[0].dataIndex];
+        return `<b>${d.dev}</b><br/>${M.label}：${fmt(d[M.k])}${M.unit}<br/>异常 SKU：${d.n} 个（负毛利 ${d.neg}）<br/>高危：${d.deep} 个<br/>30天销量：${d.s30} 件<br/>平均毛利率：${d.avgGm}%<br/>平均保本需涨：${d.upAvg}%<br/><span style="color:#888">点击只看该开发人</span>`;}},
+    grid:{left:82,right:100,top:30,bottom:34},
+    xAxis:{type:'value',name:M.label,splitLine:{lineStyle:{color:'#eef0f2'}}},
+    yAxis:{type:'category',data:cmp.map(x=>x.dev),axisLabel:{fontSize:12}},
+    series:[{type:'bar',
+      data:cmp.map(x=>({value:x[M.k],
+        itemStyle:{color:(state.dev&&state.dev!==x.dev)?'#c9ced6':M.color(x[M.k]),
+          opacity:(state.dev&&state.dev!==x.dev)?0.45:1,borderRadius:3}})),
+      barWidth:'58%',
+      label:{show:true,position:'right',
+        formatter:p=>`${fmt(p.value)}${M.unit} · ${cmp[p.dataIndex].n}个`,fontSize:11,color:'#555'}}]
+  },true);
+  c3.off('click');
+  c3.on('click',p=>{ const d=cmp[p.dataIndex].dev; state.dev = state.dev===d ? '' : d; syncSels(); render(); });
+
+  /* 开发人 30天毛利额 */
+  const dv=devAgg(list).sort((a,b)=>b.l30-a.l30);
+  const c4=chart('cDev');
+  c4.setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
+      formatter:p=>{const i=p[0].dataIndex;
+        return `${dv[i].dev}<br/>30天毛利额：${fmt(dv[i].l30)} 元<br/>90天毛利额：${fmt(dv[i].l90)} 元<br/>异常 SKU：${dv[i].n} 个（负毛利 ${dv[i].neg}）<br/>高危：${dv[i].deep} 个<br/>平均毛利率：${dv[i].avgGm}%<br/><span style="color:#888">点击只看该开发人</span>`;}},
+    grid:{left:82,right:112,top:30,bottom:34},
     xAxis:{type:'value',name:'30天毛利额(元)',splitLine:{lineStyle:{color:'#eef0f2'}}},
     yAxis:{type:'category',data:dv.map(x=>x.dev),axisLabel:{fontSize:12}},
-    series:[{
-      type:'bar',
-      data:dv.map(x=>({value:x.loss,itemStyle:{color:x.loss<0?RED:GREEN,borderRadius:3}})),
-      barWidth:'56%',
-      label:{show:true,position:'right',
-        formatter:p=>`${fmt(p.value)} 元 · ${dv[p.dataIndex].n} 个`,
-        fontSize:11,color:'#555'}
-    }]
+    series:[{type:'bar',
+      data:dv.map(x=>({value:x.l30,
+        itemStyle:{color:(state.dev&&state.dev!==x.dev)?'#c9ced6':(x.l30<0?RED:GREEN),
+          opacity:(state.dev&&state.dev!==x.dev)?0.45:1,borderRadius:3}})),
+      barWidth:'58%',
+      label:{show:true,position:'right',formatter:p=>`${fmt(p.value)} 元 · ${dv[p.dataIndex].n} 个`,fontSize:11,color:'#555'}}]
   },true);
+  c4.off('click');
+  c4.on('click',p=>{ const d=dv[p.dataIndex].dev; state.dev = state.dev===d ? '' : d; syncSels(); render(); });
 
   /* TOP20 */
   const top=list.filter(d=>d.l30<0).sort((a,b)=>a.l30-b.l30).slice(0,20).reverse();
   chart('cTop').setOption({
     tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
-      formatter:p=>{const d=top[p[0].dataIndex];return `${d.name}<br/>SKU：${d.sku}<br/>单位毛利：${fmt(d.gp)} 元（${d.gm}%）<br/>30天销量：${d.s30} 件<br/>30天亏损：${fmt(d.l30)} 元`;}},
-    grid:{left:210,right:70,top:20,bottom:30},
+      formatter:p=>{const d=top[p[0].dataIndex];
+        return `${d.name}<br/>SKU：${d.sku}｜开发：${d.dev}<br/>单位毛利：${fmt(d.gp)} 元（${d.gm}%）<br/>30天销量：${d.s30} 件<br/>30天亏损：${fmt(d.l30)} 元<br/>保本需涨：${d.up===null?'—':d.up+'%'}`;}},
+    grid:{left:200,right:70,top:20,bottom:30},
     xAxis:{type:'value',name:'30天亏损额(元)',splitLine:{lineStyle:{color:'#eef0f2'}}},
     yAxis:{type:'category',data:top.map(d=>d.name.length>16?d.name.slice(0,16)+'…':d.name),axisLabel:{fontSize:11}},
     series:[{type:'bar',data:top.map(d=>Math.abs(d.l30)),barWidth:'62%',
-      itemStyle:{color:p=>RED,borderRadius:[0,4,4,0]},
+      itemStyle:{color:RED,borderRadius:[0,4,4,0]},
       label:{show:true,position:'right',formatter:p=>'-'+fmt(p.value),fontSize:11,color:'#555'}}]
   },true);
 
   /* 散点 */
   const sp=list.filter(d=>d.s30>0);
   chart('cScatter').setOption({
-    tooltip:{formatter:p=>{const d=p.data[3];return `${d.name}<br/>SKU：${d.sku}｜开发：${d.dev}<br/>毛利率：${d.gm}%<br/>30天销量：${d.s30} 件<br/>30天毛利额：${fmt(d.l30)} 元`;}},
+    tooltip:{formatter:p=>{const d=p.data[3];
+      return `${d.name}<br/>SKU：${d.sku}｜开发：${d.dev}<br/>毛利率：${d.gm}%<br/>30天销量：${d.s30} 件<br/>30天毛利额：${fmt(d.l30)} 元<br/>优先级：${d.pri}`;}},
     grid:{left:64,right:30,top:34,bottom:50},
     xAxis:{type:'value',name:'30天销量(件)',nameLocation:'middle',nameGap:30,splitLine:{lineStyle:{color:'#eef0f2'}}},
     yAxis:{type:'value',name:'毛利率(%)',splitLine:{lineStyle:{color:'#eef0f2'}},axisLabel:{formatter:'{value}%'}},
-    series:[{
-      type:'scatter',
+    series:[{type:'scatter',
       data:sp.map(d=>[d.s30,d.gm,Math.min(30,6+Math.abs(d.l30)/6),d]),
       symbolSize:p=>p[2],
-      itemStyle:{color:p=>p.data[3].gp<0?RED:GREEN,opacity:.62,
-        borderColor:p=>p.data[3].gp<0?RED:GREEN},
-      markLine:{silent:true,symbol:'none',lineStyle:{color:RED,type:'dashed'},
-        data:[{yAxis:0,label:{formatter:'盈亏平衡线',position:'insideEndTop',fontSize:12,color:RED}}]}
-    }]
+      itemStyle:{color:p=>p.data[3].gp<0?RED:GREEN,opacity:.62,borderColor:p=>p.data[3].gp<0?RED:GREEN},
+      markLine:{silent:true,symbol:'none',lineStyle:{color:'#999',type:'dashed'},
+        data:[{yAxis:0,label:{formatter:'盈亏平衡线',position:'insideEndTop',fontSize:12,color:'#666'}}]}}]
   },true);
 
   /* 表格 */
-  const tb=document.getElementById('tb');
-  tb.innerHTML=list.map(d=>{
+  document.getElementById('tb').innerHTML=list.map(d=>{
     const [txt,cls]=actionOf(d);
     return `<tr>
+      <td><span class="tag ${d.pri.toLowerCase()}">${d.pri}</span></td>
       <td>${d.sku}</td><td title="${d.name}">${d.name}</td><td>${d.dev}</td>
       <td class="num">${d.rev}</td><td class="num">${d.cost}</td><td class="num">${d.fee}</td>
       <td class="num ${d.gp<0?'neg':'pos'}">${fmt(d.gp)}</td>
@@ -386,33 +528,25 @@ function render(){
       <td class="num">${d.s30}</td><td class="num">${d.s90}</td>
       <td class="num ${d.l30<0?'neg':'pos'}">${fmt(d.l30)}</td>
       <td class="num ${d.l90<0?'neg':'pos'}">${fmt(d.l90)}</td>
+      <td class="num">${d.up===null?'<span style="color:#bbb">—</span>':'<b class="neg">+'+d.up+'%</b>'}</td>
       <td class="num"><span class="pill">${d.n}</span></td>
       <td><span class="tag ${cls}">${txt}</span></td></tr>`;
   }).join('');
   document.getElementById('noData').style.display=list.length?'none':'block';
+  Object.values(charts).forEach(c=>c.resize());
 }
 
 /* 排序 */
 document.querySelectorAll('#tbl th').forEach(th=>{
   th.onclick=()=>{
     const k=th.dataset.k;
-    if(state.sort===k) state.asc=!state.asc; else {state.sort=k;state.asc=true;}
+    if(state.sort===k) state.asc=!state.asc;
+    else {state.sort=k;state.asc=(k==='name'||k==='sku'||k==='dev'||k==='act');}
     document.querySelectorAll('#tbl th').forEach(x=>x.innerHTML=x.innerHTML.replace(/ ↑| ↓/g,''));
     th.innerHTML+=state.asc?' ↑':' ↓';
     render();
   };
 });
-
-/* 导出 */
-document.getElementById('btnCsv').onclick=()=>{
-  const list=filtered().sort((a,b)=>a.l30-b.l30);
-  const head=['SKU','产品名称','开发人','净收入USD','采购单价','费用单价','单位毛利','毛利率%','30天销量','90天销量','30天毛利额','90天毛利额','商品ID数','建议动作'];
-  const rows=list.map(d=>[d.sku,d.name,d.dev,d.rev,d.cost,d.fee,d.gp,d.gm,d.s30,d.s90,d.l30,d.l90,d.n,actionOf(d)[0]]);
-  const csv=[head,...rows].map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\r\n');
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));
-  a.download='毛利异常_筛选结果.csv'; a.click();
-};
 
 window.addEventListener('resize',()=>Object.values(charts).forEach(c=>c.resize()));
 render();
